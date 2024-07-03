@@ -1,8 +1,4 @@
-@font-face{                    
-    font-family: "JostMio1";
-    src: url("../fonts/Jost-Italic-VariableFont_wght.ttf") format("truetype");
-    font-weight: 400;
-} 
+@import url('../fonts/fonts.css');
 :root{
     --alto-header: 70px;
     --ancho-general: 100%;
@@ -19,9 +15,6 @@
     --color-once:#0A1F11;   
 }
 
-*{
-    box-sizing: border-box;
-}
 body {
     margin: 0;
     padding: 0;
@@ -62,10 +55,13 @@ h1{
 }
 
 .nav-container {
-    background-color: #000.5;
+    background-color: #000000;
     display: flex;
     flex-flow: wrap;
     flex: 3;
+    justify-content: center;
+    align-content: center;
+
 }
 
 .nav-container>ul{
@@ -94,7 +90,6 @@ h1{
 .main-content{
     flex-grow: 3;
     background-color: rgb(53, 188, 125);
-    font-family: JostMio1;
 }
 
 .section-container{
