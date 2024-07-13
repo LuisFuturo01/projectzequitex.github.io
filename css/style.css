@@ -1,6 +1,6 @@
 @import url('../fonts/fonts.css');
 :root{
-    --color-0:#ECFFE0;
+    --color-0:#CCFFC0;
     --color-1:#D5F1DF;
     --color-2:#A0DFB6;
     --color-3:#5FC984;
@@ -21,6 +21,7 @@
     box-sizing: border-box;
     font-family: "Montserrat", "my-font", "sans-serif";
     cursor: none;
+    scroll-behavior: smooth;
 }
 body,div,input,main,nav,ul,li,section,footer,aside,picture,figure{
     margin: 0;
@@ -30,6 +31,121 @@ body{
     overflow-x:hidden;
     background-color: var(--color-bg);
 }
+
+.section_welcome-user{
+    width: 100%;
+    min-height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-1);
+    padding: 5px;
+}
+.section_welcome-user a, .section_welcome-user .arrow-down{
+    z-index: 2;
+}
+#triangles-movement{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+.welcome-user__container {
+    min-width: clamp(250px, 30vw, 800px); 
+    height: clamp(250px, 30vw, 800px);
+    padding: 10px;
+    border-radius: 50%;
+    animation: button-center 1s infinite alternate ease-in-out;
+    transform: scale(1);
+    transition: transform .5s;
+}
+.welcome-user__container:hover {
+    transform: scale(1.2);
+}
+.container__svg__defs .stop1 {
+    stop-color: var(--color-5);
+    stop-opacity: 1;
+}
+.container__svg__defs .stop2 {
+    stop-color: var(--color-3);
+    stop-opacity: 1;
+}
+.triangles-container__defs .stop3 {
+    stop-color: #8a8;
+    stop-opacity: 1;
+}
+.triangles-container__defs .stop4 {
+    stop-color: #fff;
+    stop-opacity: 1;
+}
+path{
+    stroke: url(#gradient); 
+    stroke-width: .1; 
+    fill: url(#gradient); 
+}
+.path-triangle{
+    stroke: url(#gradient2); 
+    stroke-width: .1; 
+    fill: url(#gradient2); 
+}
+.g-triangle path{
+    fill: none;
+    stroke-width: .5;
+}
+.g-triangle{
+    transition: transform 5s linear;
+}
+
+.arrow-down{
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    font-size: 3rem;
+    color: var(--color-4);
+    animation: arrow-down 1.2s infinite;
+}
+.arrow-down::after, .arrow-down::before{
+    content: "";
+    height: .3rem;
+    top: -.5rem;
+    width: 3rem;
+    background-color: var(--color-4);
+    position: absolute;
+    animation: arrow-down 1.2s infinite;
+}
+.arrow-down::after{
+    width: 4rem;
+    top: -1.4rem;
+}
+@keyframes arrow-down {
+    0%{
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes button-center{
+    0%{
+        box-shadow: 0px 0px 20px 5px var(--color-5);
+        background-color: var(--color-2);
+    }
+    100%{
+        box-shadow: 0px 0px 100px 5px var(--color-5);
+        background-color: var(--color-1);
+    }
+}
+#g-path-top{
+    transform: translateX(16)
+}
+
+
 .c-cursor {
     --size: 20px;
     position: fixed;
@@ -40,7 +156,7 @@ body{
     transform: translate(var(--cursor-x, -100px), var(--cursor-y, -100px)) translateZ(0);
     pointer-events: none;
     transition: none;
-    z-index: 1000;
+    z-index: 10000;
     will-change: transform;
 }
 .c-cursor__inner {
@@ -48,7 +164,7 @@ body{
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: #000;
     border: 1px solid #000;
     transition: transform .15s ease-in-out, opacity .15s ease-in-out;
     transform: scale(1) translateZ(0);
@@ -71,11 +187,12 @@ body{
     background-repeat: no-repeat;
     background-position: center; 
     position: fixed; 
-    z-index: -10; 
+    z-index: -100; 
     left: 50%; 
     transform: translateX(-50%); 
     opacity: 1;
 }
+
 /*HEADER START-CODE*/
 .header-container{
     width: 100%;
@@ -86,6 +203,7 @@ body{
     height: 80px;
     background-color: #6a8;
     z-index: 10;
+    overflow: hidden;
 }
 .header-wrapper{
     width: clamp(250px, 100vw, 1900px);
@@ -183,6 +301,16 @@ body{
 #open-menu, .sidebar-wrapper{
     display: none;
 }
+.sidebar__form{
+    top: 10px;
+    right: 0;
+    position: absolute;
+    z-index: 10;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    box-shadow: 7px -3px 5px #000;
+}
 .sidebar-wrapper:has(#open-menu:checked) .sidebar{
     animation: sidebar-open .4s linear both;
 }
@@ -202,36 +330,38 @@ body{
 .open-button,
 .close-button {
     background-color: var(--bg-button);
-    position: absolute;
     right: 0;
-    z-index: 10;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 3rem;
     height: 3rem;
-    top: -1px;
     user-select: none;
     font-size: 2rem;
-    top: 48dvh;
-    box-shadow: 7px -3px 5px #000;
+    top: 200px;
+    
 }
-#open-menu:checked ~ .close-button{
+body:has(#open-menu:checked){
+    overflow: hidden;
+}
+.sidebar__form:has(#open-menu:checked){
     animation: button-movement-close .41s linear both;
 }
-#open-menu:not(:checked) ~ .open-button{
+.sidebar__form:has(#open-menu:not(:checked)){
     box-shadow: -7px 3px 5px #000;
     animation: button-movement-open .41s linear both;
     animation-delay: -.5s;
 }
+
 .sidebar {
     position: fixed;
-    width: clamp(300px, 30vw, 900px); 
+    width: clamp(300px, 5vw, 900px); 
     right: clamp(-300px, -30vw, -900px);
     justify-content: right; 
-    min-height: 100dvh;
+    min-height: 90dvh;
     margin-top: -6px;
+    top: 0;
     background-color: var(--bg-sidebar);
     border-radius: 90px 0 0 90px;
     padding: 40px 20px 40px 0;
@@ -340,7 +470,6 @@ body{
 /*SIDEBAR-QUERIES-END*/
 /*MAIN-START-CODE*/
 main{
-    margin-left: -.1px;
     padding: 0;
 }
 .main-wrapper {
@@ -349,39 +478,21 @@ main{
     flex-direction: column;
     align-items: center;
     height: max-content;
+    margin-top: 80px;
 }
 .main-windows {
-    width: clamp(250px, 100%, 1900px);
-    min-height: 100dvh;
-    padding: 20px; 
+    width: clamp(300px, 100%, 1900px);
+    min-height: 100vh;
     background-color: #9b9d;
     color: #000;
     font-size: 1em;
-    padding: 10px 15%;
-    padding-top: 90px;
-    view-timeline-name: --reveal;
-    animation-name: show-scroll;
-    animation-fill-mode: both;
-    animation-timeline: --reveal;
-    animation-range: entry 5% cover 20%;
+    padding: 20px 20px;
 }
 .main-windows:first-child {
     margin-top: -80px;
 }
 .main-windows:nth-child(2n) {
     background-color: #7b7d;
-}
-@keyframes show-scroll {
-    0% {
-        opacity: 0;
-        filter: blur(2px);
-        transform: translateY(200px);
-    }
-    100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0);
-    }
 }
 
 
