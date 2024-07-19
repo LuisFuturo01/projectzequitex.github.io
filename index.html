@@ -51,14 +51,12 @@
     <link rel="preload" href="img/background-logo.webp" as="image" type="image/webp">
     <!-- Enlace a hoja de estilos -->
     <link rel='stylesheet' href='css/style.css'>
+    <link rel="stylesheet" href="css/cursor.css">
 </head>
 <body>
     <div class="background"></div>
-    <div class="c-cursor js-cursor">
-        <div class="c-cursor__inner"></div>
-    </div>
-    <section class="section_welcome-user">
-            <a href="#header-start">
+    <section class="section_welcome-user" id="start-web">
+            <a role="link" aria-label="boton al contenido principal" href="#header-start">
                 <svg class="welcome-user__container" viewBox="0 -4.5 14 25">
                     <defs class="container__svg__defs">
                         <linearGradient id="gradient" x1="100%" y1="0%" x2="200%" y2="100%">
@@ -81,21 +79,6 @@
                 </svg>     
             </a>
             <div class="arrow-down material-symbols-outlined">keyboard_double_arrow_down</div> 
-            <div id="triangles-movement">
-                <svg class="triangles-container" viewBox="0 0 150 150">
-                    <defs class="triangles-container__defs">
-                        <linearGradient id="gradient2" x1="100%" y1="0%" x2="200%" y2="100%">
-                            <stop offset="0%" class="stop3" />
-                            <stop offset="100%" class="stop4" />
-                        </linearGradient>
-                    </defs>
-                    <g id="group-triangles">
-                        <g style="transform:translate(92%, 7.2vh)" class="g-triangle">
-                            <path class="path-triangle" d="M0 0 8 1 2 7 3 3 0 0" />
-                        </g>
-                    </g>
-                </svg>
-            </div>
     </section>    
     <header id="header-start" class="header-container">
         <div class="header-wrapper">
@@ -109,26 +92,26 @@
                     </a>
             </div>      
             <nav class="menu-navbar-container" role="navigation">
-                    <ul class="menu-navbar-container__ul" role="list" title="Menú de navegación principal">
-                        <li class="container__division-ul__list">
-                            <ul class="navbar-items-list">
-                                <li class="navbar-item" role="listitem"><a role="link" href="#" title="Inicio" aria-label="Inicio">inicio</a></li>
-                                <li class="navbar-item" role="listitem"><a role="link" href="#" title="Servicios" aria-label="Servicios">servicios</a></li>
-                                <li class="navbar-item" role="listitem"><a role="link" href="#" title="Productos" aria-label="Productos">productos</a></li>
-                                <li class="navbar-item" role="listitem"><a role="link" href="#" title="Portfolio" aria-label="Portfolio">portfolio</a></li>
-                                <li class="navbar-item" role="listitem"><a role="link" href="#" title="Sobre Nosotros" aria-label="Sobre Nosotros">nosotros</a></li>
-                                <li class="navbar-item" role="listitem"><a role="link" href="#" title="testimonios" aria-label="testimonios">testimonios</a></li>
-                                <li class="navbar-item" role="listitem"><a role="link" href="#" title="Contactos" aria-label="Contactos">contactos</a></li>
-                                <li class="navbar-item" role="listitem"><a role="link" href="#" title="Redes Sociales" aria-label="Redes Sociales">redes</a></li>
-                            </ul>
-                        </li>
-                        <li class="container__division-ul__list">
-                            <ul class="navbar-items-list">
-                                <li class="navbar-item" role="listitem"><a role="link" href="#" title="Usuario" aria-label="Usuario">usuario</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                <ul class="menu-navbar-container__ul" title="Menú de navegación principal"> 
+                    <li class="container__division-ul__list">
+                        <ul class="navbar-items-list">
+                            <li class="navbar-item"><a href="#start-web" title="Inicio" aria-label="Inicio">inicio</a></li>
+                            <li class="navbar-item"><a href="html/about_us.html" title="Sobre Nosotros" aria-label="Sobre Nosotros">nosotros</a></li>
+                            <li class="navbar-item"><a href="html/services.html" title="Servicios" aria-label="Servicios">servicios</a></li>
+                            <li class="navbar-item"><a href="html/products.html" title="Productos" aria-label="Productos">productos</a></li>
+                            <li class="navbar-item"><a href="html/portfolio.html" title="portafolio" aria-label="portafolio">portafolio</a></li>
+                            <li class="navbar-item"><a href="#new-part" title="lo nuevo" aria-label="lo nuevo">nuevo</a></li>
+                            <li class="navbar-item"><a href="html/contacts.html" title="Contactos" aria-label="Contactos">contactos</a></li>
+                        </ul>
+                    </li>
+                    <li class="container__division-ul__list">
+                        <ul class="navbar-items-list">
+                            <li class="navbar-item"><a class="material-symbols-outlined icon-navbar-usser" href="html/account.html" title="Usuario" aria-label="Usuario">account_circle</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </nav>
+            
             <aside class="sidebar-wrapper">
                     <form class="sidebar__form">
                         <input type="checkbox" id="open-menu">
@@ -137,108 +120,110 @@
                     </form> 
                     <nav class="sidebar" role="navigation">
                         <ul role="list">
-                            <li class='item-sidebar' role="listitem">
+                            <li class='item-sidebar' role="listitem" title="inicio">
                                 <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined">home</div>
+                                    <div class="material-symbols-outlined list__icon">home</div>
                                 </div>
                                 <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='#' aria-label="Inicio">Inicio</a>
+                                    <a role="link" class='content-list' href='#header-start' aria-label="Inicio">Inicio</a>
                                 </div>
                             </li>
-                            <li class='item-sidebar' role="listitem">
+                            <li class='item-sidebar' role="listitem" title="servicios">
                                 <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined"></div>
+                                    <div class="material-symbols-outlined">linked_services</div>
                                 </div>
                                 <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='#' aria-label="Servicios">servicios</a>
+                                    <a role="link" class='content-list' href='html/services.html' aria-label="Servicios">servicios</a>
                                 </div>
                             </li>
-                            <li class='item-sidebar' role="listitem">
+                            <li class='item-sidebar' role="listitem" title="productos">
                                 <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined"></div>
+                                    <div class="material-symbols-outlined">inventory</div>
                                 </div>
                                 <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='#' aria-label="Productos">productos</a>
+                                    <a role="link" class='content-list' href='html/products.html' aria-label="Productos">productos</a>
                                 </div>
                             </li>
-                            <li class='item-sidebar' role="listitem">
+                            <li class='item-sidebar' role="listitem" title="portafolio">
                                 <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined"></div>
+                                    <div class="material-symbols-outlined">folder_open</div>
                                 </div>
                                 <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='#' aria-label="Portfolio">portfolio</a>
+                                    <a role="link" class='content-list' href='html/portfolio.html' aria-label="portafolio">portafolio</a>
                                 </div>
                             </li>
-                            <li class='item-sidebar' role="listitem">
+                            <li class='item-sidebar' role="listitem" title="sobre nosotros">
                                 <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined">news</div>
+                                    <div class="material-symbols-outlined">groups</div>
                                 </div>
                                 <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='#' aria-label="Nosotros">nosotros</a>
+                                    <a role="link" class='content-list' href='html/about_us.html' aria-label="Nosotros">nosotros</a>
                                 </div>
                             </li>
-                            <li class='item-sidebar' role="listitem">
+                            <li class='item-sidebar' role="listitem" title="lo nuevo">
                                 <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined">news</div>
+                                    <div class="material-symbols-outlined">notifications</div>
                                 </div>
                                 <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='#' aria-label="Testimonios">testimonios</a>
+                                    <a role="link" class='content-list' href='html/new-part' aria-label="Testimonios">nuevo</a>
                                 </div>
                             </li>
-                            <li class='item-sidebar' role="listitem">
+                            <li class='item-sidebar' role="listitem" title="contactos">
                                 <div class='list__icon list-property-size'>
                                     <div class="material-symbols-outlined">call</div>
                                 </div>
                                 <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='#' aria-label="Productos">contactos</a>
+                                    <a role="link" class='content-list' href='html/contacts.html' aria-label="Productos">contactos</a>
                                 </div>
                             </li>
-                            <li class='item-sidebar' role="listitem">
+                            <li class='item-sidebar' role="listitem" title="usuario">
                                 <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined"></div>
+                                    <div class="material-symbols-outlined">account_circle</div>
                                 </div>
                                 <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='#' aria-label="Usuario">redes</a>
-                                </div>
-                            </li>
-                            <li class='item-sidebar' role="listitem">
-                                <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined"></div>
-                                </div>
-                                <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='#' aria-label="Productos">usuario</a>
+                                    <a role="link" class='content-list' href='html/account.html' aria-label="Productos">usuario</a>
                                 </div>
                             </li>
                         </ul>
                     </nav>
             </aside>
-            <nav class="search-nav">
+            <!-- <nav class="search-nav">
                 <form action="php/search.php" method="GET" role="search" title="Busca productos, servicios o información en nuestro sitio web">
                     <label for="buscar" class="sr-only material-symbols-outlined" aria-label="Buscar en el sitio">search</label>
                     <input type="text" id="buscar" name="buscar" placeholder="Buscar..." aria-label="Buscar en el sitio">
                     <input type="submit" value="buscar"></input>
                 </form>
-            </nav>
+            </nav> -->
         </div>
     </header>
-    <main>
+    <main id="main-start">
         <div class="main-wrapper">
-            <div class="main-windows">
+            <div class="main-windows window-nosotros">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet id dolores deserunt ipsam, modi ut quis perspiciatis eos expedita, adipisci magnam ullam sint blanditiis? Dolore aliquid iure asperiores suscipit aperiam.
             </div>
-            <div class="main-windows">
+            <div class="main-windows window-servicios">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet id dolores deserunt ipsam, modi ut quis perspiciatis eos expedita, adipisci magnam ullam sint blanditiis? Dolore aliquid iure asperiores suscipit aperiam.
             </div>
-            <div class="main-windows">
+            <div class="main-windows window-productos">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet id dolores deserunt ipsam, modi ut quis perspiciatis eos expedita, adipisci magnam ullam sint blanditiis? Dolore aliquid iure asperiores suscipit aperiam.
             </div>
-            <div class="main-windows">
+            <div class="main-windows window-portafolio">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet id dolores deserunt ipsam, modi ut quis perspiciatis eos expedita, adipisci magnam ullam sint blanditiis? Dolore aliquid iure asperiores suscipit aperiam.
-            </div>+
+            </div>
+            <div class="main-windows window-nuevo">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet id dolores deserunt ipsam, modi ut quis perspiciatis eos expedita, adipisci magnam ullam sint blanditiis? Dolore aliquid iure asperiores suscipit aperiam.
+            </div>
+            <div class="main-windows window-contactos">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet id dolores deserunt ipsam, modi ut quis perspiciatis eos expedita, adipisci magnam ullam sint blanditiis? Dolore aliquid iure asperiores suscipit aperiam.
+            </div>
         <!-- <article role="article">…</article>
         <aside role="complementary">…</aside> -->
     </main>
     <footer></footer>
     <script src="js/script.js"></script>
+    <script src="js/cursor.js"></script>
 </body>
 </html>
+
+
+<!-- <a href="#" rel="noreferrer"></a>   link para privacidad del usuario -->
