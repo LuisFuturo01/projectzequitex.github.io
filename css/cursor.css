@@ -1,3 +1,35 @@
+@import url('../fonts/fonts.css');
+:root{
+    --color-0:#CCFFC0;
+    --color-1:#D5F1DF;
+    --color-2:#A0DFB6;
+    --color-3:#5FC984;
+    --color-4:#36A05B;
+    --color-5:#216238;
+    --color-6:#1C5430;
+    --color-7:#1B502E;
+    --color-8:#164125;
+    --color-9:#0F2E1A;
+    --color-a:#0A1F11;
+    --color-bg: #fff;
+    --width-logo: clamp(200px, 225px, 250px);
+    --color-a-navbar:#c4ff9e;
+    --color-a-navbar-hover:#74ff5e;
+    --bg-header: #2c5920;
+    --bg-sidebar-item-hover:#494;
+    --bg-button:#5b663d;
+    --color-arrow-button:#1c4530;
+}
+*{
+    box-sizing: border-box;
+    font-family: "Montserrat", "my-font", "sans-serif";
+    cursor: none;
+    scroll-behavior: smooth;
+}
+html{
+    scrollbar-color: var(--color-3) var(--color-7);
+    overflow-x:hidden;
+}
 .c-cursor {
     --size: 20px;
     position: fixed;

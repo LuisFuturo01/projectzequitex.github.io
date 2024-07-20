@@ -1,0 +1,116 @@
+<head>
+    <title>Tu cuenta | Zequitex S.R.L.</title>
+    <link rel="stylesheet" href="../css/cursor.css">
+    <link rel="stylesheet" href="../css/menu.css">
+</head>
+<body>
+    <header id="header-start" class="header-container">
+        <div class="header-wrapper">
+            <div class="logo-container">
+                    <a href="index.html" aria-label="Ir a la página principal" title="ZEQUITEX S.R.L. - Bordados, Estampados y Diseños Computarizados en Bolivia" role="link">
+                        <picture class="logo-picture">
+                            <source srcset="../img/logo-width.webp" type="image/webp">
+                            <source srcset="../img/logo-width.AVIF" type="image/AVIF">
+                            <img src="../img/logo-width.AVIF" alt="Logo de ZEQUITEX S.R.L." role="img" />
+                        </picture>
+                    </a>
+            </div>      
+            <nav class="menu-navbar-container" role="navigation">
+                <ul class="menu-navbar-container__ul" title="Menú de navegación principal"> 
+                    <li class="container__division-ul__list">
+                        <ul class="navbar-items-list">
+                            <li class="navbar-item"><a href="../index.html" title="Inicio" aria-label="Inicio">inicio</a></li>
+                            <li class="navbar-item"><a href="about_us.html" title="Sobre Nosotros" aria-label="Sobre Nosotros">nosotros</a></li>
+                            <li class="navbar-item"><a href="services.html" title="Servicios" aria-label="Servicios">servicios</a></li>
+                            <li class="navbar-item"><a href="products.html" title="Productos" aria-label="Productos">productos</a></li>
+                            <li class="navbar-item"><a href="portfolio.html" title="portafolio" aria-label="portafolio">portafolio</a></li>
+                            <li class="navbar-item"><a href="contacts.html" title="Contactos" aria-label="Contactos">contactos</a></li>
+                        </ul>
+                    </li>
+                    <li class="container__division-ul__list">
+                        <ul class="navbar-items-list">
+                            <li class="navbar-item"><a class="material-symbols-outlined icon-navbar-usser" href="html/account.html" title="Usuario" aria-label="Usuario">account_circle</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            
+            <aside class="sidebar-wrapper">
+                    <form class="sidebar__form">
+                        <input type="checkbox" id="open-menu">
+                        <label for="open-menu" class="material-symbols-outlined close-button">flutter</label>
+                        <label for="open-menu" class="material-symbols-outlined open-button">flutter</label>
+                    </form> 
+                    <nav class="sidebar" role="navigation">
+                        <ul role="list">
+                            <li class='item-sidebar' role="listitem" title="inicio">
+                                <div class='list__icon list-property-size'>
+                                    <div class="material-symbols-outlined list__icon">home</div>
+                                </div>
+                                <div class='list__option-text list-property-size'>
+                                    <a role="link" class='content-list' href='../index.html' aria-label="Inicio">Inicio</a>
+                                </div>
+                            </li>
+                            <li class='item-sidebar' role="listitem" title="servicios">
+                                <div class='list__icon list-property-size'>
+                                    <div class="material-symbols-outlined">linked_services</div>
+                                </div>
+                                <div class='list__option-text list-property-size'>
+                                    <a role="link" class='content-list' href='services.html' aria-label="Servicios">servicios</a>
+                                </div>
+                            </li>
+                            <li class='item-sidebar' role="listitem" title="productos">
+                                <div class='list__icon list-property-size'>
+                                    <div class="material-symbols-outlined">inventory</div>
+                                </div>
+                                <div class='list__option-text list-property-size'>
+                                    <a role="link" class='content-list' href='products.html' aria-label="Productos">productos</a>
+                                </div>
+                            </li>
+                            <li class='item-sidebar' role="listitem" title="portafolio">
+                                <div class='list__icon list-property-size'>
+                                    <div class="material-symbols-outlined">folder_open</div>
+                                </div>
+                                <div class='list__option-text list-property-size'>
+                                    <a role="link" class='content-list' href='portfolio.html' aria-label="portafolio">portafolio</a>
+                                </div>
+                            </li>
+                            <li class='item-sidebar' role="listitem" title="sobre nosotros">
+                                <div class='list__icon list-property-size'>
+                                    <div class="material-symbols-outlined">groups</div>
+                                </div>
+                                <div class='list__option-text list-property-size'>
+                                    <a role="link" class='content-list' href='about_us.html' aria-label="Nosotros">nosotros</a>
+                                </div>
+                            </li>
+                            <li class='item-sidebar' role="listitem" title="contactos">
+                                <div class='list__icon list-property-size'>
+                                    <div class="material-symbols-outlined">call</div>
+                                </div>
+                                <div class='list__option-text list-property-size'>
+                                    <a role="link" class='content-list' href='contacts.html' aria-label="Productos">contactos</a>
+                                </div>
+                            </li>
+                            <li class='item-sidebar' role="listitem" title="usuario">
+                                <div class='list__icon list-property-size'>
+                                    <div class="material-symbols-outlined">account_circle</div>
+                                </div>
+                                <div class='list__option-text list-property-size'>
+                                    <a role="link" class='content-list' href='account.html' aria-label="Productos">usuario</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+            </aside>
+            <nav class="search-nav">
+                <form action="../php/search-nav.php" method="GET" role="search" title="Busca productos, servicios o información en nuestro sitio web">
+                    <label for="buscar" class="sr-only material-symbols-outlined" aria-label="Buscar en el sitio">search</label>
+                    <input type="text" id="buscar" name="buscar" placeholder="Buscar..." aria-label="Buscar en el sitio">
+                    <input type="submit" value="buscar"></input>
+                </form>
+            </nav>
+        </div>
+    </header>
+    <script src="../js/cursor.js"></script>
+    <script src="../js/menu.js"></script>
+</body>
