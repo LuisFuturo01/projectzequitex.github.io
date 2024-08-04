@@ -31,7 +31,7 @@ div,input,main,nav,ul,li,section,footer,aside,picture,figure,html,body{
     position: sticky;
     top: 0;
     background-color: var(--bg-header);
-    z-index: 10;
+    z-index: 11;
     overflow: hidden;
 }
 .header-wrapper{
