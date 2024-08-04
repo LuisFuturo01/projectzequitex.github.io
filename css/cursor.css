@@ -23,7 +23,7 @@
 *{
     box-sizing: border-box;
     font-family: "Montserrat", "my-font", "sans-serif";
-    cursor: none !important;
+    /*cursor: none !important;*/
     scroll-behavior: smooth;
 }
 html{
