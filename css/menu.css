@@ -295,7 +295,6 @@ html:has(#open-menu:checked){
 }
 .list__icon {
     justify-content: right;
-    padding: 0px 0 9px 0;
     min-width: 0;
     color: var(--color-a-navbar);
 }

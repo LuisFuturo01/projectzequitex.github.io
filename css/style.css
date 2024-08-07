@@ -266,5 +266,8 @@ main{
         grid-template-rows: repeat(2,50%);
         grid-template-columns: repeat(1,100%);
     }
+    .main-windows:nth-child(2n) > .main-windows__right-part{
+        grid-row: 1;
+    }
 }
 /*MAIN-END-CODE*/

@@ -9,8 +9,9 @@ isTouchDevice=()=>{
     return (("ontouchstart" in window) || (navigator.maxTouchPoints>0) || (navigator.msMaxTouchPoints>0));
 };
 
+
 const isTouch= isTouchDevice();
-if(!isTouch){
+if(isTouch || !isTouch){
     const cursorEl = document.querySelector(".js-cursor");
     const isClickedClass="is-clicked";
     const isHiddenClass="is-hidden";

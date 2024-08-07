@@ -1,0 +1,115 @@
+https://excalidraw.com/#json=6sGWaKDZ-tT8UOFXlvsZg,_CPd09dzCVq2qD4i9RRvog
+
+CREATE TABLE clientes(
+	clienteID INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_completo VARCHAR(100) NOT NULL,
+    ci VARCHAR(20) NOT NULL UNIQUE,
+    correo VARCHAR(100) NOT NULL UNIQUE,
+    contraseña VARCHAR(255) NOT NULL,
+    telefono VARCHAR(20),
+    direccion VARCHAR(255),
+    ciudad VARCHAR(50),
+    departamentoID INT,
+    fecha_registro DATE DEFAULT CURRENT_DATE,
+    genero VARCHAR(20) NOT NULL,
+    activo BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (departamentoID) REFERENCES departamentos(departamentoID)
+);
+CREATE TABLE Pedidos (
+    pedidoID INT PRIMARY KEY AUTO_INCREMENT,
+    clienteID INT,
+    fecha_pedido DATE NOT NULL,
+    fecha_entrega DATE,
+    total DECIMAL(10, 2) NOT NULL,
+    forma_pagoID INT,
+    FOREIGN KEY (clienteID) REFERENCES Clientes(clienteID),
+    FOREIGN KEY (forma_pagoID) REFERENCES Forma_Pago(forma_pagoID)
+);
+CREATE TABLE Detalle_Pedido (
+    detalle_pedidoID INT PRIMARY KEY AUTO_INCREMENT,
+    pedidoID INT,
+    productoID INT,
+    cantidad_producto INT NOT NULL,
+    precio_unitario_producto DECIMAL(10, 2) NOT NULL,
+    servicioID INT,
+    cantidad_servicio INT NOT NULL,
+    precio_unitario_servicio DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (pedidoID) REFERENCES Pedidos(pedidoID),
+    FOREIGN KEY (productoID) REFERENCES Productos(productoID),
+    FOREIGN KEY (servicioID) REFERENCES Servicios(servicioID)
+);
+CREATE TABLE Direcciones_Envio (
+    direccionID INT PRIMARY KEY AUTO_INCREMENT,
+    clienteID INT,
+    nombre_destinatario VARCHAR(100) NOT NULL,
+    direccion VARCHAR(255) NOT NULL,
+    ciudad VARCHAR(50) NOT NULL,
+    departamentoID INT NOT NULL,
+    referencia VARCHAR(255),
+    FOREIGN KEY (clienteID) REFERENCES Clientes(clienteID),
+    FOREIGN KEY (departamentoID) REFERENCES Departamentos(departamentoID)
+);
+CREATE TABLE Categorias (
+    categoriaID INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_categoria VARCHAR(100) NOT NULL
+);
+CREATE TABLE Productos (
+    productoID INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_producto VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL,
+    stock INT NOT NULL,
+    categoriaID INT,
+    impuestoID INT,
+    tipo_producto VARCHAR(50),
+    FOREIGN KEY (categoriaID) REFERENCES Categorias(categoriaID),
+    FOREIGN KEY (impuestoID) REFERENCES Impuestos(impuestoID)
+);
+CREATE TABLE Formas_Pago (
+    forma_pagoID INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_forma_pago VARCHAR(50) NOT NULL
+);
+CREATE TABLE Servicios (
+    servicioID INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_servicio VARCHAR(100) NOT NULL,
+    descripcion TEXT
+);
+CREATE TABLE Empleados (
+    empleadoID INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_completo VARCHAR(100) NOT NULL,
+    ci VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    contrasena VARCHAR(255) NOT NULL,
+    telefono VARCHAR(20),
+    direccion VARCHAR(255),
+    ciudad VARCHAR(50),
+    departamentoID INT,
+    fecha_registro DATE NOT NULL,
+    genero VARCHAR(20) NOT NULL,
+    activo BOOLEAN NOT NULL,
+    cargo VARCHAR(100) NOT NULL,
+    FOREIGN KEY (departamentoID) REFERENCES Departamentos(departamentoID)
+);
+CREATE TABLE Proveedores (
+    proveedorID INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_proveedor VARCHAR(100) NOT NULL,
+    contacto VARCHAR(100),
+    telefono VARCHAR(20),
+    email VARCHAR(100),
+    direccion VARCHAR(255)
+);
+CREATE TABLE Impuestos (
+    impuestoID INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_impuesto VARCHAR(100) NOT NULL,
+    porcentaje DECIMAL(5, 2) NOT NULL
+);
+CREATE TABLE Departamentos (
+    departamentoID INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_departamento VARCHAR(100) NOT NULL
+);
+CREATE TABLE Materiales (
+    materialID INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_material VARCHAR(100) NOT NULL,
+    proveedorID INT,
+    FOREIGN KEY (proveedorID) REFERENCES Proveedores(proveedorID)
+);
