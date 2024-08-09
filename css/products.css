@@ -23,13 +23,12 @@ main{
     padding: 25px;
     gap: 5px;
     justify-content: center;
-    align-content: start;
+    align-content: center;
     margin: 0 auto;
 }
 
 .box-product {
     background-color: var(--product-element);
-    min-width: 100%;
     display: flex;
     flex-direction: column;
     padding: 2.2rem 2rem 2rem 2rem;
@@ -39,7 +38,9 @@ main{
     transform: scale(100%);
     transition: .2s transform linear;
     margin: auto;
-    /* border: 1px solid black; */
+    border: 1px solid black;
+    min-width: 100%;
+    height: 100%;
 }
 
 .box-product:hover {
