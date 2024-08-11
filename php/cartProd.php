@@ -14,17 +14,17 @@ $selectedProducts = isset($_POST['selectedProducts']) ? $_POST['selectedProducts
 $productsArray = explode(',', $selectedProducts);
 
 
-$sql = "SELECT servicioID, nombre_servicio FROM servicios";
+$sql = "SELECT productoID, nombre_producto FROM productos";
 $result = $conn->query($sql);
 if ($result) {
     echo "<b style='color:red'>Servicios añadidos al carrito: </b>";
-    $services = [];
+    $products = [];
     while ($row = $result->fetch_assoc()) {
-        if (in_array($row['servicioID'], $productsArray)) {
-            $services[] = '<b style="color:blue">' . htmlspecialchars($row['nombre_servicio']) . '</b>';
+        if (in_array($row['productoID'], $productsArray)) {
+            $products[] = '<b style="color:blue">' . htmlspecialchars($row['nombre_producto']) . '</b>';
         }
     }
-    echo implode(', ', $services);
+    echo implode(', ', $products);
 }else{
     echo "error en la consulta";
 };

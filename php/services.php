@@ -10,18 +10,18 @@ if ($conn->connect_error) {
     die('Error de conexión: ' . $conn->connect_error);
 }
 
-$sql = "SELECT nombre_producto, descripcion FROM productos";
+$sql = "SELECT nombre_servicio, descripcion FROM servicios";
 $result = $conn->query($sql);
 
-$products = [];
+$services = [];
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        $products[] = $row;
+        $services[] = $row;
     }
 }
 
 $conn->close();
 
-echo json_encode($products);
+echo json_encode($services);
 ?>
