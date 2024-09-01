@@ -1,9 +1,18 @@
 :root {
-    --product-element: #5b5;
-    --product-element-hover: #7e7;
-    --box-product-id: #6e6;
+    --product-element: #0003;
+    --product-element-hover: #0005;
+    --product-element-active: #0007;
+    --box-product-id: #000f;
+    --id-select:#fff;
+    --color-id-select:#000;
     --button-buy: #5c8;
-    --bg-color: #6b6c;
+    --bg-color: #0005;
+    --id-color:#fff;
+    --send-button:#111;
+    --send-button-hover:#888;
+}
+*{
+    font-family: "Poppins", "Montserrat", "my-font", "sans-serif";
 }
 main{
     display: flex;
@@ -38,9 +47,13 @@ main{
     transform: scale(100%);
     transition: .2s transform linear;
     margin: auto;
-    border: 1px solid black;
     min-width: 100%;
     height: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 15px black;
+    color: white;
+    user-select: none;
 }
 .box-product p{
     text-align: center;
@@ -51,24 +64,19 @@ main{
     transform: scale(102%);
     z-index: 10;
 }
-.box-product::before{
-    content: "";
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    right: 1rem;
-    bottom: 1rem;
-    outline: 3px solid var(--button-buy);
-    border-radius: 3.5rem;
+.box-product:active {
+    background-color: var(--product-element-active);
 }
 
+
 .item-select {
-    background-color: var(--product-element-hover);
+    background-color: var(--product-element-active);
 }
 
 .box-product__id {
     position: absolute;
     background-color: var(--box-product-id);
+    color: var(--id-color);
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
@@ -79,17 +87,33 @@ main{
     top: 0;
     box-shadow: 0px 0px 5px black;
 }
+.id-select{
+    background-color: var(--id-select);
+    color: var(--color-id-select);
+}
 
 .box-product__img {
     width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
     border-radius: 1.5rem;
+    object-fit: cover;
 }
 .box-product__title{
-    font-weight: 500;
-    text-transform: uppercase;
+    font-weight: 750;
+    text-decoration: underline;
+
 }
 .box-product__text {
     font-weight: 500;
+}
+.box-product__container-text{
+    border-top: 1px solid black;
+    width: 110%;
+}
+.box-product__container-img{
+    border-bottom: 1px solid black;
+    width: 110%;
 }
 
 .form-buy {
@@ -103,14 +127,15 @@ main{
 .send-button {
     width: clamp(250px, 40%, 800px);
     padding: 10px 0;
-    background-color: var(--button-buy);
-    border: 2px solid #282;
-    transition: .5s background, .5s color;
+    background-color: var(--send-button);
+    border: 2px solid var(--send-button-hover);
+    transition: border 0.5s, background 0.5s, color 0.5s;
     font-size: 1.5rem;
     border-radius: 20px;
-}
+    color: #eee;}
 
 .send-button:hover {
-    background-color: #282;
-    color: #eee;
+    background-color: var(--send-button-hover);
+    border: 2px solid var(--send-button);
+    color: #000;
 }

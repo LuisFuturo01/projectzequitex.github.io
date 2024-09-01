@@ -9,7 +9,7 @@ function fetchServices() {
                 serviceElement.setAttribute('data-value', index+1);
                 serviceElement.innerHTML = `
                     <div class="box-product__id">${index+1}</div>
-                    <img src="../img/Company.webp" alt="imagen-invisible" class="box-product__img">
+                    <img src="../img/services/${index+1}.jpg" alt="imagen-invisible" class="box-product__img">
                     <p class="box-product__title">${service.nombre_servicio}</p>
                     <p class="box-product__text">${service.descripcion}</p>
                 `;

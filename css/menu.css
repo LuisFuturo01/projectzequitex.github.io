@@ -15,7 +15,7 @@
     --width-logo: clamp(200px, 225px, 250px);
     --color-a-navbar:#c4ff9e;
     --color-a-navbar-hover:#74ff5e;
-    --bg-header: #2c5920;
+    --bg-header: #262e;
     --bg-sidebar-item-hover:#494;
     --bg-button:#5b663d;
 }
@@ -59,21 +59,6 @@ div,input,main,nav,ul,li,section,footer,aside,picture,figure,html,body{
     width: 150px;
     filter: drop-shadow(2px 2px 5px #000);
 }
-/*SEARCH NAV CODE START*/
-.search-nav{
-    grid-area: nav-search;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.search-nav form{
-    padding: 8px 90px;
-    border-radius: 10px;
-    min-width: max-content;
-    display: flex;
-    align-items: center;
-}
-/*SEARCH NAV CODE END*/
 .menu-navbar-container {
     grid-area: content-header;
     display: flex;
@@ -132,7 +117,7 @@ div,input,main,nav,ul,li,section,footer,aside,picture,figure,html,body{
     animation: link-movement .2s both;
 }
 .icon-navbar-usser{
-    font-size: 2.5rem;
+    font-size: 2.5rem !important;
 }
 .icon-navbar-usser:before{
     display: none;
@@ -315,13 +300,22 @@ html:has(#open-menu:checked){
     text-transform: uppercase;
     color: inherit;
 }
-
+.icon-navbar-usser{
+    font-size:2rem;
+}
 .sidebar ul .item-sidebar:last-child {
     position: relative;
     bottom: 0;
     margin-top: auto;
 }
-
+footer{
+    display: flex;
+    background-color: #000;
+    color: #fff;
+    bottom: 0;
+    width: clamp(250px, 100vw, 1900px);
+    padding: 4rem 10rem;
+}
 
 /*SIDEBAR-END-CODE*/
 /*SIDEBAR-QUERIES-START*/

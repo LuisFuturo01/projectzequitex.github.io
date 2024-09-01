@@ -19,12 +19,16 @@
     --bg-sidebar-item-hover:#494;
     --bg-button:#5b663d;
     --color-arrow-button:#1c4530;
-    --bg-main-window:#6b6c;
-    --bg-main-window__secondary:#3b3c;
+    --bg-main-window__text:#000;
+    --bg-main-window:#676f67cc;
+    --bg-main-window__secondary:#0005;
+    --bg-main-window__text:#b4b794;
+    --color-main-window__text:#000;
+    --color-main-window__text-secondary:#000;
 }
 *{
     box-sizing: border-box;
-    font-family: "Montserrat", "my-font", "sans-serif";
+    font-family: "Poppins", "Montserrat", "my-font", "sans-serif";
 }
 
 html{
@@ -37,7 +41,7 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-1);
+    background-color: #000;
     padding: 5px;
     position: relative;
     overflow: hidden;
@@ -46,31 +50,14 @@ html{
     z-index: 2;
 }
 
-.welcome-user__container {
-    min-width: clamp(250px, 30vw, 800px); 
-    height: clamp(250px, 30vw, 800px);
-    padding: 10px;
-    border-radius: 50%;
-    animation: button-center 1s infinite alternate ease-in-out;
-    transform: scale(1);
-    transition: transform .5s;
-}
-.welcome-user__container:hover {
-    transform: scale(1.2);
-}
-.container__svg__defs .stop1 {
-    stop-color: var(--color-5);
-    stop-opacity: 1;
-}
-.container__svg__defs .stop2 {
-    stop-color: var(--color-3);
-    stop-opacity: 1;
+.section_welcome-user a img{
+    width: 100%;
+    transition: opacity .5s;
+    animation: button-center 1s alternate infinite linear;
 }
 
-path{
-    stroke: url(#gradient); 
-    stroke-width: .1; 
-    fill: url(#gradient); 
+.section_welcome-user a:hover > img{
+    opacity: .5;
 }
 
 .arrow-down{
@@ -110,27 +97,33 @@ path{
 }
 @keyframes button-center{
     0%{
-        box-shadow: 0px 0px 20px 5px var(--color-5);
-        background-color: var(--color-2);
+        filter: drop-shadow(3px 3px 3px var(--bg-main-window));
+        scale: 1;
     }
     100%{
-        box-shadow: 0px 0px 100px 5px var(--color-5);
-        background-color: var(--color-1);
+        filter: drop-shadow(3px 3px 3px var(--bg-main-window__text));
+        scale: 1.01;
     }
 }
 
 .background {
     width: clamp(250px, 100%, 1900px);
     height: 100vh;
-    background-image: url(../img/background-logo.webp);
+    /* background-image: url(../img/background-logo.webp); */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center; 
+    opacity: 0.5;
     position: fixed; 
     z-index: -100; 
     left: 50%; 
     transform: translateX(-50%); 
-    opacity: 1;
+    display: flex;
+    justify-content: center;    
+}
+.background img{
+    width: 70%;
+    opacity: .4;
 }
 /*MAIN-START-CODE*/
 main{
@@ -176,6 +169,7 @@ main{
     position: relative;
     width: 70%;
     height: 100%;
+    object-fit: cover;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -198,6 +192,8 @@ main{
     align-items: center;
     justify-content: center;
     object-fit: cover;
+    aspect-ratio: 1/1;
+    object-position: center;
 }
 .container-slider-img__picture img,
 .container-slider-img__picture source {
@@ -240,8 +236,12 @@ main{
     align-items: center;
     padding: 5px 6%;
     overflow-y: auto;
-    border-radius: 10px;
+    border-radius: 10%;
     box-shadow: 0px 0px 10px #000;
+    flex-direction: column;
+    user-select: none;
+    justify-content: center;
+    background-color: var(--bg-main-window__text);/*arreglado*/
 }
 .container-main-text::before {
     content: "";
@@ -250,16 +250,25 @@ main{
     left: 0;
     width: 100%;
     height: 100%;
-    filter: blur(50px);
-    background-color: #000;
+    background-color: var(--bg-main-window__text);
     z-index: -1;
     border-radius: inherit;
 }
 .container-main-text__text{
-    color: #fff;
-    letter-spacing: 1px;
-    filter:drop-shadow(1px 0 1px black);
-    font-weight: 650;
+    color: var(--color-main-window__text);
+    letter-spacing: 2px;
+    font-weight: 500;
+    line-height: 150%;
+    text-transform:uppercase;
+}
+.container-main-text__title{
+    color: var(--color-main-window__text);
+    text-decoration: underline;
+    text-transform:uppercase;
+    top: 50px;
+}
+.main-windows:nth-child(2n) .container-main-text__text {
+    color: var(--color-main-window__text-secondary);
 }
 @media screen and (max-width:950px){
     .main-windows{
