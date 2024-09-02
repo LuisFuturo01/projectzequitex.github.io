@@ -52,6 +52,8 @@
     <!-- Enlace a hoja de estilos -->
     <link rel="stylesheet" href="../css/cursor.css">
     <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/contacts.css">
+    <link rel="stylesheet" href="../css/maps.css">
 </head>
 <body>
     <header id="header-start" class="header-container">
@@ -73,13 +75,12 @@
                             <li class="navbar-item"><a href="about_us.html" title="Sobre Nosotros" aria-label="Sobre Nosotros">nosotros</a></li>
                             <li class="navbar-item"><a href="services.html" title="Servicios" aria-label="Servicios">servicios</a></li>
                             <li class="navbar-item"><a href="products.html" title="Productos" aria-label="Productos">productos</a></li>
-                            <li class="navbar-item"><a href="portfolio.html" title="portafolio" aria-label="portafolio">portafolio</a></li>
                             <li class="navbar-item"><a href="contacts.html" title="Contactos" aria-label="Contactos">contactos</a></li>
                         </ul>
                     </li>
                     <li class="container__division-ul__list">
                         <ul class="navbar-items-list">
-                            <li class="navbar-item"><a class="material-symbols-outlined icon-navbar-usser" href="html/account.html" title="Usuario" aria-label="Usuario">account_circle</a></li>
+                            <li class="navbar-item"><a class="material-symbols-outlined icon-navbar-usser" href="login.html" title="Usuario" aria-label="Usuario">account_circle</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -154,6 +155,48 @@
             </aside>
         </div>
     </header>
+    <main class="main-wrapper">
+        <div class="main-container">
+            <div class="main-container__network">
+                <a href="https://whatsapp.com">
+                    <label for="">whatsapp</label>
+                    <img src="../img/icons-contact/whatsapp.png" alt="">
+                </a>
+            </div>
+            <div class="main-container__network">
+                <a href="https://faceboook.com">
+                    <label for="">facebook</label>
+                    <img src="../img/icons-contact/facebook.png" alt="">
+                </a>
+            </div>
+            <div class="main-container__network">
+                <a href="https://instagram.com">
+                    <label for="">instagram</label>
+                    <img src="../img/icons-contact/instagram.png" alt="">
+                </a>
+            </div>
+            <div class="main-container__network">
+                <a href="https://linkedin.com">
+                    <label for="">linkedin</label>
+                    <img src="../img/icons-contact/linkedin.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="informacion">
+            <p>Correo de soporte: <a href="zequitex:zequitex@gmail.com">zequitex@gmail.com</a></p>
+            <p>Teléfono de atención al cliente: <a href="tel:+59172047100">+591 72047100</a></p>
+            <p>Horario de atención: Lunes a Viernes, 9 AM - 6 PM</p>
+        </div>
+        <h2 class="wrapper__title">Ubicación</h2>
+            <div class="map-container">
+                <gmpx-api-loader key="AIzaSyBfwz8T0rSXEZE6OizpAKouJrQQX_egIPI" solution-channel="GMP_QB_locatorplus_v10_c"></gmpx-api-loader>
+                <div id="holaxd" class="map-container__element">
+                    <gmpx-store-locator map-id="DEMO_MAP_ID"></gmpx-store-locator>
+                </div>
+            </div>
+    </main>
+    <script type="module" src="https://unpkg.com/@googlemaps/extended-component-library@0.6"></script>    
+    <script type="module" src="../js/maps.js"></script>
     <script src="../js/cursor.js"></script>
     <script src="../js/menu.js"></script>
 </body>

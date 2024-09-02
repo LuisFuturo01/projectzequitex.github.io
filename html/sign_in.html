@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <div class="background">
+        <img src="../img/logo-zequitex-big.png" alt="fondo-logo-zequitex">
+    </div>
+    <div class="login-container">
+        <form method="post" action="../php/login.php" class="login-container__form">
+            <div class="login-container__form__title">
+                <h1>LOGIN</h1>
+            </div>
+            <div class="login-container__form__input">
+                <label for="Name">Nombre Completo:</label>
+                <input type="text" id="Name" name="Usuario" placeholder="Complete Name">
+                <label for="CI">Carnet de Identidad(CI):</label>
+                <input type="text" id="CI" name="CI" placeholder="123456789#">
+                <label for="Usuario">Usuario:</label>
+                <input type="text" id="Usuario" name="UsuarioName" placeholder="Customer Name">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="pepito@hola.com">
+                <label for="Password">Contraseña:</label>
+                <input type="text" id="Password" name="UsuarioPassword" placeholder="Password">
+                <label for="phone">Celular:</label>
+                <input type="text" id="phone" name="phone" placeholder="#59112345678">
+                <label for="Dir">Dirección</label>
+                <input type="text" id="Dir" name="dir" placeholder="Clle. Peñaloza, La Paz, Bolivia">
+                <label for="ciudad">ciudad:</label>
+                <input type="text" id="ciudad" name="ciudad" placeholder="#59112345678">
+                <label for="dep">DEPARTAMENTO</label>
+                <select name="dep" id="dep">
+                    <option value=""></option>
+                </select>
+                <label for="gen">Genero:</label>
+                <select name="gen" id="gen">
+                    <option value=""></option>
+                </select>
+                <div class="down-part">
+                    <input class="form-button" type="submit" value="ingresar">
+                    <input type="reset" class="form-button">
+                </div>
+                <a class="form-link" href="login.html">Ya tengo una cuenta</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

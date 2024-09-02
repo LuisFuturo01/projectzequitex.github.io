@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-08-2024 a las 07:25:56
+-- Tiempo de generación: 02-09-2024 a las 04:16:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -29,8 +29,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categorias` (
   `categoriaID` int(11) NOT NULL,
-  `nombre_categoria` varchar(100) NOT NULL
+  `nombre_categoria` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`categoriaID`, `nombre_categoria`) VALUES
+(1, 'conjuntos deportivos'),
+(2, 'gorras'),
+(3, 'pantalones-jeans'),
+(4, 'polos'),
+(5, 'chalecos'),
+(6, 'madera');
 
 -- --------------------------------------------------------
 
@@ -48,9 +60,10 @@ CREATE TABLE `clientes` (
   `direccion` varchar(255) DEFAULT NULL,
   `ciudad` varchar(50) DEFAULT NULL,
   `departamentoID` int(11) DEFAULT NULL,
-  `fecha_registro` date DEFAULT CURRENT_DATE,
+  `fecha_registro` date NOT NULL DEFAULT curdate(),
   `genero` varchar(15) DEFAULT NULL,
-  `activo` tinyint(1) DEFAULT 1
+  `activo` tinyint(1) DEFAULT 1,
+  `usuario` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -128,11 +141,18 @@ CREATE TABLE `empleados` (
   `direccion` varchar(255) DEFAULT NULL,
   `ciudad` varchar(50) DEFAULT NULL,
   `departamentoID` int(11) DEFAULT NULL,
-  `fecha_registro` date NOT NULL DEFAULT CURRENT_DATE,
+  `fecha_registro` date NOT NULL DEFAULT curdate(),
   `genero` varchar(20) NOT NULL,
   `activo` tinyint(1) NOT NULL,
   `cargo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `empleados`
+--
+
+INSERT INTO `empleados` (`empleadoID`, `nombre_completo`, `ci`, `email`, `contrasena`, `telefono`, `direccion`, `ciudad`, `departamentoID`, `fecha_registro`, `genero`, `activo`, `cargo`) VALUES
+(1, 'Luis Zeballos', '12896709', 'luis.az.quiroz@gmail.com', '12345678', '71556955', 'villa victoria', 'La Paz', 1, '2024-08-11', 'M', 0, 'administrador');
 
 -- --------------------------------------------------------
 
@@ -143,30 +163,6 @@ CREATE TABLE `empleados` (
 CREATE TABLE `formas_pago` (
   `forma_pagoID` int(11) NOT NULL,
   `nombre_forma_pago` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `impuestos`
---
-
-CREATE TABLE `impuestos` (
-  `impuestoID` int(11) NOT NULL,
-  `nombre_impuesto` varchar(100) NOT NULL,
-  `porcentaje` decimal(5,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `materiales`
---
-
-CREATE TABLE `materiales` (
-  `materialID` int(11) NOT NULL,
-  `nombre_material` varchar(100) NOT NULL,
-  `proveedorID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -196,25 +192,56 @@ CREATE TABLE `productos` (
   `descripcion` text DEFAULT NULL,
   `precio` decimal(10,2) NOT NULL,
   `stock` int(11) NOT NULL,
-  `categoriaID` int(11) DEFAULT NULL,
-  `impuestoID` int(11) DEFAULT NULL,
-  `tipo_producto` varchar(50) DEFAULT NULL
+  `categoriaID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `proveedores`
+-- Volcado de datos para la tabla `productos`
 --
 
-CREATE TABLE `proveedores` (
-  `proveedorID` int(11) NOT NULL,
-  `nombre_proveedor` varchar(100) NOT NULL,
-  `contacto` varchar(100) DEFAULT NULL,
-  `telefono` varchar(20) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `direccion` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `productos` (`productoID`, `nombre_producto`, `descripcion`, `precio`, `stock`, `categoriaID`) VALUES
+(1, 'CONJUNTO NEGRO', 'conjunto de deportivo negro con lineas rojas de fergus', 50.00, 100, 1),
+(2, 'CONJUNTO ROJO', 'conjunto rojo con plomo de fergus', 50.00, 100, 1),
+(3, 'CONJUNTO AMARILLO-AZUL', 'conjunto amarillo con azul de fergus', 50.00, 100, 1),
+(4, 'CONJUNTO ROJO-AZUL', 'conjunto rojo con azul de lorem con lineas blancas ', 50.00, 100, 1),
+(5, 'CONJUNTO NEGRO-AZUL', 'conjunto negro con azul y blanco, de fergus', 50.00, 100, 1),
+(6, 'CONJUNTO ARGENTINO', 'conjunto argentino con el 3 mundial', 50.00, 100, 1),
+(7, 'CONJUNTO BLANCO-PLOMO', 'conjunto blanco con plomo de adidas con diseños rojos y negros', 50.00, 100, 1),
+(8, 'CONJUNTO BLANCO-NEGRO', 'conjunto blanco con negro de psg con patrocinio de nike', 50.00, 100, 1),
+(9, 'GORRA COMPLETA', 'gorra para viaje ploma, de scpta', 25.00, 50, 2),
+(10, 'GORRA CREMA NIKE', 'gorra color crema de nike con bordado LA', 25.00, 50, 2),
+(11, 'GORRA ROJA NY', 'gorra roja con frente larga de NY', 25.00, 50, 2),
+(12, 'GORRA BLANCA', 'gorra blanca bordada con negro ajustable', 25.00, 50, 2),
+(13, 'GORRA PLOMA-MALLA', 'gorra Plomma con malla de triumph motorcycles', 25.00, 50, 2),
+(14, 'GORRA CAQUI-BOLIVIA', 'Gorra caqui de bolivia color beich, multicolor', 25.00, 50, 2),
+(15, 'GORRA NEGRA-ADIDAS', 'gorra negra con malla, de adidas deportiva', 25.00, 50, 2),
+(16, 'GORRA BLANCA-ADIDAS', 'gorra simple blanca de adidas', 25.00, 50, 2),
+(17, 'GORRA AZUL-BOLIVIA', 'gorra azul de bolivia con bordado y apaches', 25.00, 50, 2),
+(18, 'GORRA DEPORTIVA-ADIDAS', 'gorra blanca de adidas bordada con color negro', 25.00, 50, 2),
+(19, 'GORRA EXOTICO', 'gorra con diseño exotico bordado y cortes vinil color negro con dorado', 25.00, 50, 2),
+(20, 'JEANS-AZULES', 'conjunto de jeans multicolor y de toda talla', 210.00, 80, 3),
+(21, 'PANTALON DE TELA PLOMO', 'pantalon de tela plomo y formal', 190.00, 80, 3),
+(22, 'PANTALON DE TELA MARENGO', 'pantalon de tela marengo con diseño elastico para niños desde talla 6-s', 250.00, 80, 3),
+(23, 'PANTALON DE VESTIR GRIS', 'pantalon de tela gris con diseño elastico para vestir', 210.00, 60, 3),
+(24, 'POLO BLANCO-CUELLO CAMISA', 'polo blanco con diseño de botones tipo camisa', 98.00, 20, 4),
+(25, 'POLERA SELECCIÓN BOLIVIANA', 'polera de la seleccion boliviana, con vinilo (actualizada)', 210.00, 60, 4),
+(26, 'POLERA SELECCIÓN BOLIVIANA ALTERNATIVA', 'polera blanca con diseño de bolivia blanca y de marathon', 210.00, 60, 4),
+(27, 'POLO NEGRO', 'Diseño de polo negro con mole de tigre', 210.00, 60, 4),
+(28, 'POLO MIXTO-SERIGRAFIADO', 'poloes unitam mixto 2X1', 210.00, 60, 4),
+(29, 'POLO ROJO-SERIGRAFIADO', 'Polo rojo con sefigrafiado de La Paz en blanco', 210.00, 60, 4),
+(30, 'POLO PLOMO-SERIGRAFIADO', 'Polo plomo serigrafiado con el Mandalorian en blanco y negro', 210.00, 60, 4),
+(31, 'CHALECO INDUSTRIAL', 'Chaleco industrial de seguridad con logo de zequitex', 210.00, 60, 5),
+(32, 'CHALECO DE VIAJE BLANCO', 'chaleco de viaje blanco para uso en bosque', 210.00, 60, 5),
+(33, 'CHALECO DE VIAJE AZUL-MARINO', 'chaleco de viaje azul para uso en excursion', 210.00, 60, 5),
+(34, 'CHALECO DE VIAJE PLOMO', 'chaleco de viaje plomo para excursion larga', 210.00, 60, 5),
+(35, 'CHALECO DE SEGURIDAD-FLUORESCENTE', 'chaleco industrial para seguridad con diseño fluorescente', 210.00, 60, 5),
+(36, 'CAJAS DE MESA', 'cajas pequeñas de recuerdo con corte laser', 100.00, 20, 6),
+(37, 'COFRES DE MADERA', 'cofre de madera a medida y corte laser', 100.00, 20, 6),
+(38, 'ESTUCHE SERIGRAFIADO', 'estuche del banco fie negro con serigrafia', 100.00, 20, 6),
+(39, 'RECUERDO LA PAZ', 'recuerdo de la paz con grabado laser en madera', 100.00, 20, 6),
+(40, 'LLAVERO CORAZON', 'llavero de corazon para el dia de la madre', 100.00, 20, 6),
+(41, 'LLAVERO DE SAN FRANCISCO', 'Llavero de recuerdo del colegio San Francisco con corte laser', 100.00, 20, 6),
+(42, 'LLAVERO UMSA', 'Llavero de la UMSA con corte laser para universidades', 100.00, 20, 6);
 
 -- --------------------------------------------------------
 
@@ -274,6 +301,7 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`clienteID`),
   ADD UNIQUE KEY `ci` (`ci`),
   ADD UNIQUE KEY `correo` (`correo`),
+  ADD UNIQUE KEY `usuario` (`usuario`),
   ADD KEY `departamentoID` (`departamentoID`);
 
 --
@@ -313,19 +341,6 @@ ALTER TABLE `formas_pago`
   ADD PRIMARY KEY (`forma_pagoID`);
 
 --
--- Indices de la tabla `impuestos`
---
-ALTER TABLE `impuestos`
-  ADD PRIMARY KEY (`impuestoID`);
-
---
--- Indices de la tabla `materiales`
---
-ALTER TABLE `materiales`
-  ADD PRIMARY KEY (`materialID`),
-  ADD KEY `proveedorID` (`proveedorID`);
-
---
 -- Indices de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
@@ -337,21 +352,7 @@ ALTER TABLE `pedidos`
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`productoID`),
-  ADD KEY `categoriaID` (`categoriaID`),
-  ADD KEY `impuestoID` (`impuestoID`);
-
---
--- Indices de la tabla `proveedores`
---
-ALTER TABLE `proveedores`
-  ADD PRIMARY KEY (`proveedorID`);
-
---
--- Indices de la tabla `servicios`
---
-ALTER TABLE `servicios`
-  ADD PRIMARY KEY (`servicioID`);
+  ADD PRIMARY KEY (`productoID`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -361,130 +362,13 @@ ALTER TABLE `servicios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `categoriaID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `clientes`
---
-ALTER TABLE `clientes`
-  MODIFY `clienteID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `departamentos`
---
-ALTER TABLE `departamentos`
-  MODIFY `departamentoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT de la tabla `detalle_pedido`
---
-ALTER TABLE `detalle_pedido`
-  MODIFY `detalle_pedidoID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `direcciones_envio`
---
-ALTER TABLE `direcciones_envio`
-  MODIFY `direccionID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `empleados`
---
-ALTER TABLE `empleados`
-  MODIFY `empleadoID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `formas_pago`
---
-ALTER TABLE `formas_pago`
-  MODIFY `forma_pagoID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `impuestos`
---
-ALTER TABLE `impuestos`
-  MODIFY `impuestoID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `materiales`
---
-ALTER TABLE `materiales`
-  MODIFY `materialID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  MODIFY `pedidoID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `categoriaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `productoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT de la tabla `proveedores`
---
-ALTER TABLE `proveedores`
-  MODIFY `proveedorID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `servicios`
---
-ALTER TABLE `servicios`
-  MODIFY `servicioID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `clientes`
---
-ALTER TABLE `clientes`
-  ADD CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`departamentoID`) REFERENCES `departamentos` (`departamentoID`);
-
---
--- Filtros para la tabla `detalle_pedido`
---
-ALTER TABLE `detalle_pedido`
-  ADD CONSTRAINT `detalle_pedido_ibfk_1` FOREIGN KEY (`pedidoID`) REFERENCES `pedidos` (`pedidoID`),
-  ADD CONSTRAINT `detalle_pedido_ibfk_2` FOREIGN KEY (`productoID`) REFERENCES `productos` (`productoID`),
-  ADD CONSTRAINT `detalle_pedido_ibfk_3` FOREIGN KEY (`servicioID`) REFERENCES `servicios` (`servicioID`);
-
---
--- Filtros para la tabla `direcciones_envio`
---
-ALTER TABLE `direcciones_envio`
-  ADD CONSTRAINT `direcciones_envio_ibfk_1` FOREIGN KEY (`clienteID`) REFERENCES `clientes` (`clienteID`),
-  ADD CONSTRAINT `direcciones_envio_ibfk_2` FOREIGN KEY (`departamentoID`) REFERENCES `departamentos` (`departamentoID`);
-
---
--- Filtros para la tabla `empleados`
---
-ALTER TABLE `empleados`
-  ADD CONSTRAINT `empleados_ibfk_1` FOREIGN KEY (`departamentoID`) REFERENCES `departamentos` (`departamentoID`);
-
---
--- Filtros para la tabla `materiales`
---
-ALTER TABLE `materiales`
-  ADD CONSTRAINT `materiales_ibfk_1` FOREIGN KEY (`proveedorID`) REFERENCES `proveedores` (`proveedorID`);
-
---
--- Filtros para la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`clienteID`) REFERENCES `clientes` (`clienteID`),
-  ADD CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`forma_pagoID`) REFERENCES `forma_pago` (`forma_pagoID`);
-
---
--- Filtros para la tabla `productos`
---
-ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoriaID`) REFERENCES `categorias` (`categoriaID`),
-  ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`impuestoID`) REFERENCES `impuestos` (`impuestoID`);
+  MODIFY `productoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

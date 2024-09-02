@@ -4,7 +4,7 @@ include('conect.php');
 $usuario = $_POST['UsuarioName'];
 $password = $_POST['UsuarioPassword'];
 
-$consulta = "SELECT usuario, contraseña FROM clientes WHERE usuario = '$usuario' AND contraseña = '$password'";
+$consulta = "INSERT INTO clientes(usuario, contraseña) WHERE usuario = '$usuario' AND contraseña = '$password'";
 
 $result = $conn->query($consulta);
 
