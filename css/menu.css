@@ -1,4 +1,7 @@
 @import url('../fonts/fonts.css');
+*{
+    font-family: "Poppins", "Montserrat", "my-font", "sans-serif";
+}
 :root{
     --color-0:#CCFFC0;
     --color-1:#D5F1DF;
@@ -27,6 +30,7 @@ div,input,main,nav,ul,li,section,footer,aside,picture,figure,html,body{
 .header-container{
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
     position: sticky;
     top: 0;
@@ -34,14 +38,58 @@ div,input,main,nav,ul,li,section,footer,aside,picture,figure,html,body{
     z-index: 11;
     overflow: hidden;
 }
+.search-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
 .header-wrapper{
     width: clamp(250px, 100vw, 1900px);
     display: grid;
     grid-template-areas: 
-    "logo content-header content-header content-header content-header"
-    "logo nav-search nav-search nav-search nav-search";
+    "logo content-header content-header content-header content-header content-header"
+    "logo nav-search nav-search nav-search nav-search nav-search";
     padding: 0 5px;
 }
+.search-section{
+    grid-area: nav-search;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: .3rem;
+    gap: 20px;
+}
+
+
+.search{
+    font-size: 2rem;
+    opacity: 1;
+    transition: opacity .5s;
+    color: var(--color-a-navbar);
+}
+#buscador {
+    background: linear-gradient(to bottom, var(--bg-header), var(--bg-sidebar-item-hover), var(--bg-header));
+    color: white;
+    padding: .3rem;
+    border-radius: 20%;
+    transition: width 1s, opacity 1s, transform 1s;
+    width: 0;
+    opacity: 0;
+}
+#buscador::placeholder {
+    color: #fff;
+}
+#buscador:focus {
+    outline: none;
+    width: 50%;
+    opacity: 1;
+    transform: translate(calc(25% + 2rem));
+}
+#buscador:focus ~ .search{
+    opacity: 0;
+}
+
 .header__container-content{
     display: flex;
     width: 100%;
@@ -64,7 +112,7 @@ div,input,main,nav,ul,li,section,footer,aside,picture,figure,html,body{
     display: flex;
     gap: 10px;
     align-items: center;
-    padding: 10px;
+    padding: 10px 10px 0 10px;
 }
 .menu-navbar-container .menu-navbar-container__ul {
     display: grid;
@@ -329,3 +377,39 @@ footer{
     }
 }
 /*SIDEBAR-QUERIES-END*/
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #f0f0f0;
+}
+
+.footer-bottom {
+    font-size: 0.875rem;
+}

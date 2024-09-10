@@ -83,13 +83,14 @@
                             <li class="navbar-item"><a href="html/about_us.html" title="Sobre Nosotros" aria-label="Sobre Nosotros">nosotros</a></li>
                             <li class="navbar-item"><a href="html/services.html" title="Servicios" aria-label="Servicios">servicios</a></li>
                             <li class="navbar-item"><a href="html/products.html" title="Productos" aria-label="Productos">productos</a></li>
-                            <li class="navbar-item"><a href="#new-part" title="lo nuevo" aria-label="lo nuevo">nuevo</a></li>
                             <li class="navbar-item"><a href="html/contacts.html" title="Contactos" aria-label="Contactos">contactos</a></li>
                         </ul>
                     </li>
                     <li class="container__division-ul__list">
                         <ul class="navbar-items-list">
-                            <li class="navbar-item"><a class="material-symbols-outlined icon-navbar-usser" href="html/login.html" title="Usuario" aria-label="Usuario">shopping_cart</a></li>
+                            <ul class="navbar-items-list">
+                                <li class="navbar-item"><a class="material-symbols-outlined icon-navbar-usser" href="php/verificate-user.php" title="Carrito" aria-label="Carrito">shopping_cart</a></li>
+                            </ul>
                         </ul>
                     </li>
                 </ul>
@@ -135,20 +136,12 @@
                                     <a role="link" class='content-list' href='html/about_us.html' aria-label="Nosotros">nosotros</a>
                                 </div>
                             </li>
-                            <li class='item-sidebar' role="listitem" title="lo nuevo">
-                                <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined">notifications</div>
-                                </div>
-                                <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='html/new-part' aria-label="nuevo">nuevo</a>
-                                </div>
-                            </li>
                             <li class='item-sidebar' role="listitem" title="contactos">
                                 <div class='list__icon list-property-size'>
                                     <div class="material-symbols-outlined">call</div>
                                 </div>
                                 <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='html/contacts.html' aria-label="Productos">contactos</a>
+                                    <a role="link" class='content-list' href='html/contacts.html' aria-label="Contacto">contactos</a>
                                 </div>
                             </li>
                             <li class='item-sidebar' role="listitem" title="usuario">
@@ -156,7 +149,7 @@
                                     <div class="material-symbols-outlined">shopping_cart</div>
                                 </div>
                                 <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='html/login.html' aria-label="Productos">usuario</a>
+                                    <a role="link" class='content-list' href='php/verificate-user.php' aria-label="Carrito">Carrito</a>
                                 </div>
                             </li>
                         </ul>
@@ -231,34 +224,34 @@
                         <button class="slider-btn prev-btn">&#10094;</button>
                         <div class="container-slider-img__inner">
                             <picture class="container-slider-img__picture">
-                                    <img src="img/products/cofre.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
+                                    <img src="img/products/1.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
                             </picture>
                             <picture class="container-slider-img__picture">
-                                    <img src="img/products/cofre-atras.jpg" alt="Cofre imagen trasera" role="img" type="img/jpg" />
+                                    <img src="img/products/2.jpg" alt="Cofre imagen trasera" role="img" type="img/jpg" />
                             </picture>
                             <picture class="container-slider-img__picture">
-                                    <img src="img/products/cajas.jpg" alt="Caja imagen" role="img" type="img/jpg" />
+                                    <img src="img/products/10.jpg" alt="Caja imagen" role="img" type="img/jpg" />
                             </picture>
                             <picture class="container-slider-img__picture">
-                                    <img src="img/products/estuche.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
+                                    <img src="img/products/12.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
                             </picture>
                             <picture class="container-slider-img__picture">
-                                    <img src="img/products/llavero.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
+                                    <img src="img/products/13.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
                             </picture>
                             <picture class="container-slider-img__picture">
-                                    <img src="img/products/llavero2.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
+                                    <img src="img/products/20.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
                             </picture>
                             <picture class="container-slider-img__picture">
-                                    <img src="img/products/llavero3.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
+                                    <img src="img/products/21.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
                             </picture>
                             <picture class="container-slider-img__picture">
-                                    <img src="img/products/llavero4.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
+                                    <img src="img/products/22.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
                             </picture>
                             <picture class="container-slider-img__picture">
-                                    <img src="img/products/llavero5.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
+                                    <img src="img/products/30.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
                             </picture>
                             <picture class="container-slider-img__picture">
-                                    <img src="img/products/sombrero.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
+                                    <img src="img/products/31.jpg" alt="Cofre imagen" role="img" type="img/jpg" />
                             </picture>
                         </div>
                         <button class="slider-btn next-btn">&#10095;</button>
@@ -273,39 +266,26 @@
                     </div>
                 </div>
             </div>
-            <div class="main-windows window-nuevo">
-                <div class="main-windows__right-part main-windows__part">
-                    <div class="container-main-text">
-                        <h2 class="container-main-text__title">NUEVO</h2>
-                        <p class="container-main-text__text">
-                            En Zequitex S.R.L., siempre estamos innovando; desde la implementación de nuevas técnicas y materiales hasta el lanzamiento de colecciones y promociones exclusivas, nos esforzamos por mantenernos a la vanguardia en la industria textil.
-                        </p>
-                    </div>
-                </div>
-                <div class="main-windows__left-part main-windows__part">
-                    <div class="container-slider-img">
-                        <button class="slider-btn prev-btn">&#10094;</button>
-                        <div class="container-slider-img__inner">
-                            <picture class="container-slider-img__picture">
-                                <img src="img/nuevo.png" alt="Empresa Zequitex 1" role="img" />
-                            </picture>
-                        </div>
-                        <button class="slider-btn next-btn">&#10095;</button>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </main>
-    <footer>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nihil inventore cum autem suscipit porro ullam in corporis, eligendi recusandae fuga sint corrupti minus optio ipsum unde laudantium, magnam ex.
+    <footer class="footer">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="index.html" class="footer-link">Inicio</a></li>
+                <li><a href="html/services.html" class="footer-link">Servicios</a></li>
+                <li><a href="html/products.html" class="footer-link">Productos</a></li>
+                <li><a href="html/about_us.html" class="footer-link">Sobre Nosotros</a></li>
+                <li><a href="html/contacts.html" class="footer-link">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Zequitex S.R.L. Todos los derechos reservados.</p>
+        </div>
     </footer>
+    
     <script src="js/account.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/cursor.js"></script>
     <script src="js/slider.js"></script>
 </body>
 </html>
-
-
-<!-- <a href="#" rel="noreferrer"></a>   link para privacidad del usuario -->

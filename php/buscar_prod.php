@@ -1,7 +1,9 @@
 <?php
 include('conect.php');
 
-$sql = "SELECT productoID, nombre_producto, descripcion FROM productos";
+$term = isset($_GET['term']) ? $conn->real_escape_string($_GET['term']) : '';
+
+$sql = "SELECT productoID, nombre_producto, descripcion FROM productos WHERE nombre_producto LIKE '%$term%'";
 $result = $conn->query($sql);
 
 $products = [];
@@ -16,4 +18,3 @@ $conn->close();
 
 echo json_encode($products);
 ?>
-

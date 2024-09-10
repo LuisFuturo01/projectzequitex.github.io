@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-09-2024 a las 04:16:23
+-- Tiempo de generación: 10-09-2024 a las 06:29:15
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `zequitex`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carrito`
+--
+
+CREATE TABLE `carrito` (
+  `CarritoID` int(11) NOT NULL,
+  `clienteID` int(11) NOT NULL,
+  `productoID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `carrito`
+--
+
+INSERT INTO `carrito` (`CarritoID`, `clienteID`, `productoID`) VALUES
+(12, 3, 31);
 
 -- --------------------------------------------------------
 
@@ -65,6 +84,15 @@ CREATE TABLE `clientes` (
   `activo` tinyint(1) DEFAULT 1,
   `usuario` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`clienteID`, `nombre_completo`, `ci`, `correo`, `contraseña`, `telefono`, `direccion`, `ciudad`, `departamentoID`, `fecha_registro`, `genero`, `activo`, `usuario`) VALUES
+(1, 'Luis Zeballos', '12896709', 'luis.futuro01@gmail.com', '$2y$10$e7OlW5ObIcO6e4JXiTLFj.x1HnEHKvXla5Ll286/9ySeH99GoHGwS', '71556955', 'Clle. peñaloza', 'La paz', 1, '2024-09-09', 'M', 1, 'LuisFuturo'),
+(2, 'Alejandro Quiroz', '891268451', 'luis.az.quiroz@gmail.com', '$2y$10$b8XRIvcRZb20klfzEkKnWO4AShMVO5cSrDM0Q1ES2phl.ndzU4QAO', '71556955', 'la paz', 'la paz', 1, '2024-09-09', 'M', 1, 'Alejandro'),
+(3, 'Jose Luis', '3348587', 'zequitex@gmail.com', '$2y$10$PyOy9z.e30HXBqLdSruRWef8URkn/fZ53Bwi2FhXjYVqD3id4dCF.', '72047100', '', 'oruro', 4, '2024-09-09', 'M', 1, 'pepe');
 
 -- --------------------------------------------------------
 
@@ -146,13 +174,6 @@ CREATE TABLE `empleados` (
   `activo` tinyint(1) NOT NULL,
   `cargo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `empleados`
---
-
-INSERT INTO `empleados` (`empleadoID`, `nombre_completo`, `ci`, `email`, `contrasena`, `telefono`, `direccion`, `ciudad`, `departamentoID`, `fecha_registro`, `genero`, `activo`, `cargo`) VALUES
-(1, 'Luis Zeballos', '12896709', 'luis.az.quiroz@gmail.com', '12345678', '71556955', 'villa victoria', 'La Paz', 1, '2024-08-11', 'M', 0, 'administrador');
 
 -- --------------------------------------------------------
 
@@ -289,6 +310,14 @@ INSERT INTO `servicios` (`servicioID`, `nombre_servicio`, `descripcion`) VALUES
 --
 
 --
+-- Indices de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  ADD PRIMARY KEY (`CarritoID`),
+  ADD KEY `clienteID` (`clienteID`),
+  ADD KEY `productoID` (`productoID`);
+
+--
 -- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
@@ -355,8 +384,20 @@ ALTER TABLE `productos`
   ADD PRIMARY KEY (`productoID`);
 
 --
+-- Indices de la tabla `servicios`
+--
+ALTER TABLE `servicios`
+  ADD PRIMARY KEY (`servicioID`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  MODIFY `CarritoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -365,10 +406,33 @@ ALTER TABLE `categorias`
   MODIFY `categoriaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `clienteID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
   MODIFY `productoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT de la tabla `servicios`
+--
+ALTER TABLE `servicios`
+  MODIFY `servicioID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`clienteID`) REFERENCES `clientes` (`clienteID`),
+  ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`productoID`) REFERENCES `productos` (`productoID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

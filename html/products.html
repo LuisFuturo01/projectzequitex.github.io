@@ -52,7 +52,7 @@
     <!-- Enlace a hoja de estilos -->
     <link rel="stylesheet" href="../css/cursor.css">
     <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/store.css">
+    <link rel="stylesheet" href="../css/storeb.css">
 </head>
 <body>
     <header id="header-start" class="header-container">
@@ -79,11 +79,15 @@
                     </li>
                     <li class="container__division-ul__list">
                         <ul class="navbar-items-list">
-                            <li class="navbar-item"><a class="material-symbols-outlined icon-navbar-usser" href="login.html" title="Usuario" aria-label="Usuario">account_circle</a></li>
+                            <li class="navbar-item"><a class="material-symbols-outlined icon-navbar-usser" href="../php/verificate-user.php" title="Carrito" aria-label="Carrito">shopping_cart</a></li>
                         </ul>
                     </li>
                 </ul>
             </nav>
+            <section class="search-section">
+                <input type="text" id="buscador" placeholder="Buscar productos..." >
+                <label for="buscador" class="material-symbols-outlined search">search</label>
+            </section>
             <aside class="sidebar-wrapper">
                     <form class="sidebar__form">
                         <input type="checkbox" id="open-menu">
@@ -140,12 +144,12 @@
                                     <a role="link" class='content-list' href='contacts.html' aria-label="Productos">contactos</a>
                                 </div>
                             </li>
-                            <li class='item-sidebar' role="listitem" title="usuario">
+                            <li class='item-sidebar' role="listitem" title="Carrito">
                                 <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined">account_circle</div>
+                                    <div class="material-symbols-outlined">shopping_cart</div>
                                 </div>
                                 <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='account.html' aria-label="Productos">usuario</a>
+                                    <a role="link" class='content-list' href='../php/verificate-user.php' aria-label="Carrito">Carrito</a>
                                 </div>
                             </li>
                         </ul>
@@ -156,7 +160,7 @@
     <main>
         <div class="main-wrapper">
             <div class="main-wrapper__products">
-                
+
             </div>
             <form action="../php/cartProd.php" method="post" class="form-buy">
                 <input type="hidden" name="selectedProducts" id="input" value="">
@@ -164,7 +168,21 @@
             </form>
         </div>
     </main>
-    <script src="../js/storeProd.js"></script>
+    <footer class="footer">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="../index.html" class="footer-link">Inicio</a></li>
+                <li><a href="services.html" class="footer-link">Servicios</a></li>
+                <li><a href="products.html" class="footer-link">Productos</a></li>
+                <li><a href="about_us.html" class="footer-link">Sobre Nosotros</a></li>
+                <li><a href="contacts.html" class="footer-link">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Zequitex S.R.L. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="../js/storeProdc.js"></script>
     <script src="../js/cursor.js"></script>
     <script src="../js/menu.js"></script>
 </body>

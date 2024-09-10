@@ -1,25 +1,29 @@
 <?php
-include('conect.php');
 
-$selectedProducts = isset($_POST['selectedProducts']) ? $_POST['selectedProducts'] : '';
-$productsArray = explode(',', $selectedProducts);
+session_start();
 
+$usuario = $_SESSION['usuario'];
+if (isset($_SESSION['selectedProducts'])) {
+    $selectedServices = $_SESSION['selectedProducts'];
+} else {
+    $selectedServices = isset($_POST['selectedProducts']) ? $_POST['selectedProducts'] : '';
+}
 
-$sql = "SELECT productoID, nombre_producto FROM productos";
-$result = $conn->query($sql);
-if ($result) {
-    echo "<b style='color:red'>Servicios añadidos al carrito: </b>";
-    $products = [];
-    while ($row = $result->fetch_assoc()) {
-        if (in_array($row['productoID'], $productsArray)) {
-            $products[] = '<b style="color:blue">' . htmlspecialchars($row['nombre_producto']) . '</b>';
-        }
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../html/login.html");
+    exit();
+} else {
+    include('conect.php');
+
+    $selectedProducts = isset($_POST['selectedProducts']) ? $_POST['selectedProducts'] : '';
+    $productsArray = explode(',', $selectedProducts);
+    for($i=0 ; $i < count($productsArray) ; $i++){
+        $sql = "INSERT INTO carrito (clienteID, productoID) VALUES ($usuario, $productsArray[$i])";
+        $conn->query($sql);
     }
-    echo implode(', ', $products);
-}else{
-    echo "error en la consulta";
-};
-
-$conn->close();
+    header("Location: cart.php");
+    $conn->close();
+    exit();
+}
 
 ?>

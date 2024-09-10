@@ -1,7 +1,7 @@
 <?php
 include('conect.php');
 
-$sql = "SELECT nombre_servicio, descripcion FROM servicios";
+$sql = "SELECT servicioID, nombre_servicio, descripcion FROM servicios";
 $result = $conn->query($sql);
 
 $services = [];

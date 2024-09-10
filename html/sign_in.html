@@ -1,53 +1,70 @@
-<!DOCTYPE html>
+<!DOCautocomplete="off" type html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/log.css">
 </head>
 <body>
     <div class="background">
         <img src="../img/logo-zequitex-big.png" alt="fondo-logo-zequitex">
     </div>
-    <div class="login-container">
-        <form method="post" action="../php/login.php" class="login-container__form">
-            <div class="login-container__form__title">
-                <h1>LOGIN</h1>
-            </div>
-            <div class="login-container__form__input">
-                <label for="Name">Nombre Completo:</label>
-                <input type="text" id="Name" name="Usuario" placeholder="Complete Name">
-                <label for="CI">Carnet de Identidad(CI):</label>
-                <input type="text" id="CI" name="CI" placeholder="123456789#">
-                <label for="Usuario">Usuario:</label>
-                <input type="text" id="Usuario" name="UsuarioName" placeholder="Customer Name">
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" placeholder="pepito@hola.com">
-                <label for="Password">Contraseña:</label>
-                <input type="text" id="Password" name="UsuarioPassword" placeholder="Password">
-                <label for="phone">Celular:</label>
-                <input type="text" id="phone" name="phone" placeholder="#59112345678">
-                <label for="Dir">Dirección</label>
-                <input type="text" id="Dir" name="dir" placeholder="Clle. Peñaloza, La Paz, Bolivia">
-                <label for="ciudad">ciudad:</label>
-                <input type="text" id="ciudad" name="ciudad" placeholder="#59112345678">
-                <label for="dep">DEPARTAMENTO</label>
-                <select name="dep" id="dep">
-                    <option value=""></option>
-                </select>
-                <label for="gen">Genero:</label>
-                <select name="gen" id="gen">
-                    <option value=""></option>
-                </select>
-                <div class="down-part">
-                    <input class="form-button" type="submit" value="ingresar">
-                    <input type="reset" class="form-button">
+    <div class="container">
+        <div class="login-container">
+            <form method="post" action="../php/sign_in.php" class="login-container__form">
+                <div class="login-container__form__title">
+                    <h1>SIGN-IN</h1>
                 </div>
-                <a class="form-link" href="login.html">Ya tengo una cuenta</a>
-            </div>
-        </form>
+                <div class="login-container__form__input login-container__form__input--var">
+                    <div class="form-part">
+                        <label for="Name">Nombre Completo:</label>
+                        <input autocomplete="off" type="text" id="Name" name="Usuario" placeholder="Complete Name">
+                        <label for="CI">Carnet de Identidad(CI):</label>
+                        <input autocomplete="off" type="text" id="CI" name="CI" placeholder="00000000">
+                        <label for="email">Correo Electrónico:</label>
+                        <input autocomplete="off" type="email" id="email" name="email" placeholder="pepito@hola.com">
+                        <label for="Usuario">Usuario:</label>
+                        <input autocomplete="off" type="text" id="Usuario" name="UsuarioName" placeholder="Customer Name">
+                        <label for="Password">Contraseña:</label>
+                        <input autocomplete="off" type="text" id="Password" name="UsuarioPassword" placeholder="Password">
+                    </div>
+                    <div class="form-part">
+                        <label for="phone">Celular:</label>
+                        <input autocomplete="off" type="text" id="phone" name="phone" placeholder="7654321">
+                        <label for="Dir">Dirección</label>
+                        <input autocomplete="off" type="text" id="Dir" name="dir" placeholder="Clle. Peñaloza, La Paz, Bolivia">
+                        <label for="ciudad">ciudad:</label>
+                        <input autocomplete="off" type="text" id="ciudad" name="ciudad" placeholder="El Alto">
+                        <label for="dep">DEPARTAMENTO</label>
+                        <select class="login-select" name="dep" id="dep">
+                            <option value="1">La Paz</option>
+                            <option value="2">Santa Cruz</option>
+                            <option value="3">Cochabamba</option>
+                            <option value="4">Oruro</option>
+                            <option value="5">Potosi</option>
+                            <option value="6">Tarija</option>
+                            <option value="7">Chuquisaca</option>
+                            <option value="8">Beni</option>
+                            <option value="9">Pando</option>
+                        </select>
+                        <label for="gen">Genero:</label>
+                        <select class="login-select" name="gen" id="gen" default="0">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                            <option value="O" selected>Otro</option>
+                        </select>
+                    </div>
+                    <a class="form-link" href="login.html">Ya tengo una cuenta</a>
+                    <div class="down-part">
+                        <input class="form-button" type="submit" value="Crear">
+                        <input type="reset" class="form-button">
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>

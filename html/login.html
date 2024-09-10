@@ -5,29 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="../css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet preconnect">
+    <link rel="stylesheet" href="../css/log.css">
 </head>
 <body>
     <div class="background">
         <img src="../img/logo-zequitex-big.png" alt="fondo-logo-zequitex">
     </div>
-    <div class="login-container">
-        <form method="post" action="../php/login.php" class="login-container__form">
-            <div class="login-container__form__title">
-                <h1>LOGIN</h1>
+    <button class="return-button"><a href="../index.html" class="material-symbols-outlined">first_page</a></button>
+    <div class="container">
+        <div class="login-container">
+            <div class="img-container">
+                <img src="../img/logo-zequitex-big.png" alt="">
             </div>
-            <div class="login-container__form__input">
-                <label for="Usuario">Usuario:</label>
-                <input type="text" id="Usuario" name="UsuarioName" placeholder="Customer Name">
-                <label for="Password">Contraseña:</label>
-                <input type="text" id="Password" name="UsuarioPassword" placeholder="Password">
-                <div class="down-part">
-                    <input class="form-button" type="submit" value="ingresar">
-                    <input type="reset" class="form-button">
+            <form method="post" action="../php/login.php" class="login-container__form">
+                <div class="login-container__form__title">
+                    <h1>LOGIN</h1>
                 </div>
-                <a class="form-link" href="sign_in.html">Crear Cuenta</a>
-            </div>
-        </form>
+                <div class="login-container__form__input">
+                    <label for="Usuario">Usuario:</label>
+                    <input autocomplete="off"type="text" id="Usuario" name="UsuarioName" placeholder="Customer Name">
+                    <label for="Password">Contraseña:</label>
+                    <input autocomplete="off"type="text" id="Password" name="UsuarioPassword" placeholder="Password">
+                    <div class="remember-container">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember" id="remember-label">Recordar</label>
+                        <label id="additional-label"></label>
+                    </div>
+                    <div class="down-part">
+                        <input class="form-button" type="submit" value="ingresar">
+                        <input type="reset" class="form-button">
+                    </div>
+                    <a class="form-link" href="sign_in.html">Crear Cuenta</a>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>

@@ -1,0 +1,66 @@
+function doPost(e) {
+  // Recibir y parsear el cuerpo de la solicitud (el JSON que envías desde PHP)
+  var jsonData = JSON.parse(e.postData.contents);
+  
+  // Extraer los datos del cliente
+  var nombreCliente = jsonData.cliente.nombre_completo;
+  var correoCliente = jsonData.cliente.correo;
+  
+  // Extraer los servicios solicitados
+  var servicios = jsonData.servicios;
+
+  // Preparar el cuerpo del correo con la información recibida
+  var mensaje = "Hola " + nombreCliente + ",\n\n";
+  mensaje += "Gracias por solicitar información sobre los siguientes servicios:\n\n";
+  
+  // Array para almacenar archivos adjuntos
+  var archivosAdjuntos = [];
+  
+  var folderId = '1kdgFN__pTC3kmr99Tt6y7uhRovOkgIZg'; // ID de la carpeta en Google Drive
+  var folder = DriveApp.getFolderById(folderId);
+
+  servicios.forEach(function(servicio) {
+    // Agregar el nombre del servicio al mensaje
+    mensaje += "Servicio: " + servicio.nombre_servicio + "\n\n";
+    
+    // Construir el nombre del archivo PDF basado en el ID del servicio
+    var nombreArchivo = servicio.servicioID + ".pdf";
+    Logger.log('Buscando archivo: ' + nombreArchivo);
+    
+    // Buscar el archivo en la carpeta específica de Google Drive
+    var archivos = folder.getFilesByName(nombreArchivo);
+    if (archivos.hasNext()) {
+      // Solo añadir el archivo si se encuentra
+      while (archivos.hasNext()) {
+        var archivo = archivos.next();
+        archivosAdjuntos.push(archivo.getAs(MimeType.PDF));
+        Logger.log('Archivo encontrado y agregado: ' + nombreArchivo);
+      }
+    } else {
+      Logger.log('Archivo no encontrado: ' + nombreArchivo);
+    }
+  });
+
+  mensaje += "Nos pondremos en contacto contigo pronto.\n\nSaludos,\nTu Empresa";
+  
+  // Enviar correo al cliente con los archivos adjuntos solo si hay archivos
+  if (archivosAdjuntos.length > 0) {
+    MailApp.sendEmail({
+      to: correoCliente,
+      subject: 'Información sobre servicios solicitados',
+      body: mensaje,
+      attachments: archivosAdjuntos
+    });
+    Logger.log("Correo enviado a: " + correoCliente);
+  } else {
+    MailApp.sendEmail({
+      to: correoCliente,
+      subject: 'Información sobre servicios solicitados',
+      body: mensaje,
+    });
+    Logger.log("No se encontraron archivos para enviar.");
+  }
+  
+  // Responder a la solicitud POST para confirmar que se procesó correctamente
+  return ContentService.createTextOutput('Solicitud procesada correctamente.');
+}
