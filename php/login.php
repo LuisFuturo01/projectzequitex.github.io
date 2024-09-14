@@ -6,8 +6,15 @@ session_start();
 $usuario = $_POST['UsuarioName'];
 $password = $_POST['UsuarioPassword'];
 $remember = isset($_POST['remember']) ? true : false;
+if (empty($usuario) || empty($password)) {
+    echo "<script>
+            alert('Por favor, completa todos los campos');
+            window.location.href = '../html/login.html';
+        </script>";
+    exit;
+}
 
-$consulta = "SELECT clienteID, usuario, contraseña FROM clientes WHERE usuario = '$usuario'";
+$consulta = "SELECT clienteID, usuario, contraseña FROM clientes WHERE usuario = '$usuario' and activo = '1'";
 $result = $conn->query($consulta);
 
 if ($result->num_rows > 0) {

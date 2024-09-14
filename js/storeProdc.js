@@ -59,3 +59,4 @@ document.querySelector('#buscador').addEventListener('input', (event) => {
     const term = event.target.value.trim(); // Elimina espacios en blanco al inicio y al final
     fetchServices(term);
 });
+

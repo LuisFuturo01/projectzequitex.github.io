@@ -3,7 +3,7 @@ include('conect.php');
 
 $term = isset($_GET['term']) ? $conn->real_escape_string($_GET['term']) : '';
 
-$sql = "SELECT productoID, nombre_producto, descripcion FROM productos WHERE nombre_producto LIKE '%$term%'";
+$sql = "SELECT productoID, nombre_producto, descripcion, precio FROM productos WHERE nombre_producto LIKE '%$term%'";
 $result = $conn->query($sql);
 
 $products = [];

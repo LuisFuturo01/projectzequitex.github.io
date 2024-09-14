@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-09-2024 a las 06:29:15
+-- Tiempo de generación: 15-09-2024 a las 01:57:42
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -38,7 +38,7 @@ CREATE TABLE `carrito` (
 --
 
 INSERT INTO `carrito` (`CarritoID`, `clienteID`, `productoID`) VALUES
-(12, 3, 31);
+(1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`clienteID`, `nombre_completo`, `ci`, `correo`, `contraseña`, `telefono`, `direccion`, `ciudad`, `departamentoID`, `fecha_registro`, `genero`, `activo`, `usuario`) VALUES
-(1, 'Luis Zeballos', '12896709', 'luis.futuro01@gmail.com', '$2y$10$e7OlW5ObIcO6e4JXiTLFj.x1HnEHKvXla5Ll286/9ySeH99GoHGwS', '71556955', 'Clle. peñaloza', 'La paz', 1, '2024-09-09', 'M', 1, 'LuisFuturo'),
+(1, 'Luis Zeballos', '12896709', 'luis.futuro01@gmail.com', '$2y$10$6IYC5WCpofsEnDZZmdWXl.ZwaY.BjnUi/grEcb9mQ//3yyOmNfRry', '71556955', 'Clle. peñaloza', 'La paz', 1, '2024-09-09', 'M', 1, 'LuisFuturo'),
 (2, 'Alejandro Quiroz', '891268451', 'luis.az.quiroz@gmail.com', '$2y$10$b8XRIvcRZb20klfzEkKnWO4AShMVO5cSrDM0Q1ES2phl.ndzU4QAO', '71556955', 'la paz', 'la paz', 1, '2024-09-09', 'M', 1, 'Alejandro'),
 (3, 'Jose Luis', '3348587', 'zequitex@gmail.com', '$2y$10$PyOy9z.e30HXBqLdSruRWef8URkn/fZ53Bwi2FhXjYVqD3id4dCF.', '72047100', '', 'oruro', 4, '2024-09-09', 'M', 1, 'pepe');
 
@@ -123,23 +123,6 @@ INSERT INTO `departamentos` (`departamentoID`, `nombre_departamento`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detalle_pedido`
---
-
-CREATE TABLE `detalle_pedido` (
-  `detalle_pedidoID` int(11) NOT NULL,
-  `pedidoID` int(11) DEFAULT NULL,
-  `productoID` int(11) DEFAULT NULL,
-  `cantidad_producto` int(11) NOT NULL,
-  `precio_unitario_producto` decimal(10,2) NOT NULL,
-  `servicioID` int(11) DEFAULT NULL,
-  `cantidad_servicio` int(11) NOT NULL,
-  `precio_unitario_servicio` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `direcciones_envio`
 --
 
@@ -156,28 +139,6 @@ CREATE TABLE `direcciones_envio` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `empleados`
---
-
-CREATE TABLE `empleados` (
-  `empleadoID` int(11) NOT NULL,
-  `nombre_completo` varchar(100) NOT NULL,
-  `ci` varchar(20) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `contrasena` varchar(255) NOT NULL,
-  `telefono` varchar(20) DEFAULT NULL,
-  `direccion` varchar(255) DEFAULT NULL,
-  `ciudad` varchar(50) DEFAULT NULL,
-  `departamentoID` int(11) DEFAULT NULL,
-  `fecha_registro` date NOT NULL DEFAULT curdate(),
-  `genero` varchar(20) NOT NULL,
-  `activo` tinyint(1) NOT NULL,
-  `cargo` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `formas_pago`
 --
 
@@ -185,6 +146,13 @@ CREATE TABLE `formas_pago` (
   `forma_pagoID` int(11) NOT NULL,
   `nombre_forma_pago` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `formas_pago`
+--
+
+INSERT INTO `formas_pago` (`forma_pagoID`, `nombre_forma_pago`) VALUES
+(1, 'transferencia QR');
 
 -- --------------------------------------------------------
 
@@ -195,10 +163,11 @@ CREATE TABLE `formas_pago` (
 CREATE TABLE `pedidos` (
   `pedidoID` int(11) NOT NULL,
   `clienteID` int(11) DEFAULT NULL,
-  `fecha_pedido` date NOT NULL,
+  `fecha_pedido` timestamp NOT NULL DEFAULT current_timestamp(),
   `fecha_entrega` date DEFAULT NULL,
   `total` decimal(10,2) NOT NULL,
-  `forma_pagoID` int(11) DEFAULT NULL
+  `forma_pagoID` int(11) DEFAULT NULL,
+  `detalle` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -340,27 +309,11 @@ ALTER TABLE `departamentos`
   ADD PRIMARY KEY (`departamentoID`);
 
 --
--- Indices de la tabla `detalle_pedido`
---
-ALTER TABLE `detalle_pedido`
-  ADD PRIMARY KEY (`detalle_pedidoID`),
-  ADD KEY `pedidoID` (`pedidoID`),
-  ADD KEY `productoID` (`productoID`),
-  ADD KEY `servicioID` (`servicioID`);
-
---
 -- Indices de la tabla `direcciones_envio`
 --
 ALTER TABLE `direcciones_envio`
   ADD PRIMARY KEY (`direccionID`),
   ADD KEY `clienteID` (`clienteID`),
-  ADD KEY `departamentoID` (`departamentoID`);
-
---
--- Indices de la tabla `empleados`
---
-ALTER TABLE `empleados`
-  ADD PRIMARY KEY (`empleadoID`),
   ADD KEY `departamentoID` (`departamentoID`);
 
 --
@@ -381,7 +334,8 @@ ALTER TABLE `pedidos`
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`productoID`);
+  ADD PRIMARY KEY (`productoID`),
+  ADD KEY `fk_categoria` (`categoriaID`);
 
 --
 -- Indices de la tabla `servicios`
@@ -397,7 +351,7 @@ ALTER TABLE `servicios`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `CarritoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `CarritoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -410,6 +364,30 @@ ALTER TABLE `categorias`
 --
 ALTER TABLE `clientes`
   MODIFY `clienteID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `departamentos`
+--
+ALTER TABLE `departamentos`
+  MODIFY `departamentoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `direcciones_envio`
+--
+ALTER TABLE `direcciones_envio`
+  MODIFY `direccionID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `formas_pago`
+--
+ALTER TABLE `formas_pago`
+  MODIFY `forma_pagoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `pedidoID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -433,6 +411,30 @@ ALTER TABLE `servicios`
 ALTER TABLE `carrito`
   ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`clienteID`) REFERENCES `clientes` (`clienteID`),
   ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`productoID`) REFERENCES `productos` (`productoID`);
+
+--
+-- Filtros para la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`departamentoID`) REFERENCES `departamentos` (`departamentoID`);
+
+--
+-- Filtros para la tabla `direcciones_envio`
+--
+ALTER TABLE `direcciones_envio`
+  ADD CONSTRAINT `direcciones_envio_ibfk_1` FOREIGN KEY (`departamentoID`) REFERENCES `departamentos` (`departamentoID`);
+
+--
+-- Filtros para la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`forma_pagoID`) REFERENCES `formas_pago` (`forma_pagoID`);
+
+--
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `fk_categoria` FOREIGN KEY (`categoriaID`) REFERENCES `categorias` (`categoriaID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

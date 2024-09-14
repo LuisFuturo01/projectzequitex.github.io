@@ -6,10 +6,12 @@
     --id-select:#fff;
     --color-id-select:#000;
     --button-buy: #5c8;
-    --bg-color: #0005;
+    --bg-color: #676f67cc;
     --id-color:#fff;
-    --send-button:#111;
-    --send-button-hover:#888;
+    --send-button-hover: #01b689;
+    --send-button: #013868;
+    --send-button-text-hover: #000;
+    --send-button-text: #fff;
 }
 *{
     font-family: "Poppins", "Montserrat", "my-font", "sans-serif";
@@ -66,6 +68,7 @@ main{
 }
 
 
+
 .item-select {
     background-color: var(--product-element-active);
 }
@@ -120,29 +123,31 @@ main{
 .form-buy {
     width: 100%;
     height: max-content;
+    width: max-content;
     padding: 5px;
     display: flex;
     justify-content: center;
     position: sticky;
-    bottom: 0;
+    bottom: 50px;
     z-index: 10;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 .send-button {
-    width: clamp(250px, 40%, 800px);
-    padding: 10px 0;
+    padding: 20px;
     background-color: var(--send-button);
-    border: 2px solid var(--send-button-hover);
     transition: border 0.5s, background 0.5s, color 0.5s;
     font-size: 1.5rem;
     border-radius: 20px;
-    color: #eee;
+    color: var(--send-button-text);
+    font-weight: 700;
 }
 
 .send-button:hover {
     background-color: var(--send-button-hover);
-    border: 2px solid var(--send-button);
-    color: #000;
+    color: var(--send-button-text-hover);
 }
 
 .button-select{
@@ -151,4 +156,15 @@ main{
     border-radius: 20px;
     position: absolute;
     bottom: 2.2rem;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title-text{
+    font-size: 3rem;
+    margin: .5rem 0;
+    font-weight: 700;
+    color: #ffd700;
 }

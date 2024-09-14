@@ -6,31 +6,35 @@
     <title>login</title>
     <meta name="robots" content="noindex">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet preconnect">
-    <link rel="stylesheet" href="../css/log.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
     <div class="background">
         <img src="../img/logo-zequitex-big.png" alt="fondo-logo-zequitex">
     </div>
-    <button class="return-button"><a href="../index.html" class="material-symbols-outlined">first_page</a></button>
+    <div class="return">
+        <a href="../index.html" class="material-symbols-outlined">arrow_back</a>
+    </div>
     <div class="container">
         <div class="login-container">
             <div class="img-container">
                 <img src="../img/logo-zequitex-big.png" alt="">
             </div>
-            <form method="post" action="../php/login.php" class="login-container__form">
+            <form method="post" action="../php/login.php" class="login-container__form" id="miFormulario">
                 <div class="login-container__form__title">
                     <h1>LOGIN</h1>
                 </div>
                 <div class="login-container__form__input">
                     <label for="Usuario">Usuario:</label>
-                    <input autocomplete="off"type="text" id="Usuario" name="UsuarioName" placeholder="Customer Name">
+                    <input autocomplete="off"type="text" id="Usuario" name="UsuarioName" placeholder="Customer Name" required>
+                    <span class="error-message">Por favor, ingresa tu Usuario.</span>
                     <label for="Password">Contraseña:</label>
-                    <input autocomplete="off"type="text" id="Password" name="UsuarioPassword" placeholder="Password">
+                    <input autocomplete="off"type="text" id="Password" name="UsuarioPassword" placeholder="Password" required>
+                    <span class="error-message">Por favor, ingresa tu contraseña.</span>
                     <div class="remember-container">
                         <input type="checkbox" id="remember" name="remember">
                         <label for="remember" id="remember-label">Recordar</label>
-                        <label id="additional-label"></label>
+                        <label id="additional-label" for="remember"></label>
                     </div>
                     <div class="down-part">
                         <input class="form-button" type="submit" value="ingresar">
@@ -41,5 +45,6 @@
             </form>
         </div>
     </div>
+    <script src="../js/log.js"></script>
 </body>
 </html>

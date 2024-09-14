@@ -52,7 +52,8 @@
     <!-- Enlace a hoja de estilos -->
     <link rel="stylesheet" href="../css/cursor.css">
     <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/storeb.css">
+    <link rel="stylesheet" href="../css/store.css">
+    <link rel="stylesheet" href="../css/loader.css">
 </head>
 <body>
     <header id="header-start" class="header-container">
@@ -159,7 +160,13 @@
     </header>
     <main>
         <div class="main-wrapper">
-            <div class="main-wrapper__products">
+            <div class="title">
+                <h1 class="title-text">Servicios</h1>
+            </div>
+            <div id="loader" class="loader">
+                <div class="spinner"></div>
+            </div>
+            <div class="main-wrapper__products" style="display: none;">
                 
             </div>
             <form action="../php/verify-serv.php" method="post" class="form-buy">
@@ -167,7 +174,7 @@
                 <input type="hidden" name="selectedServices" id="input" value="">
                 <button type="submit" class="send-button">PEDIR MÁS INFORMACIÓN</button>
             </form>
-        </div>
+        </d>
     </main>
     <footer class="footer">
         <div class="footer-content">
@@ -186,5 +193,6 @@
     <script src="../js/storeServc.js"></script>
     <script src="../js/cursor.js"></script>
     <script src="../js/menu.js"></script>
+    <script src="../js/loader.js"></script>
 </body>
 </html>

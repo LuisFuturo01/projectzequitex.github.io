@@ -97,7 +97,7 @@ h1{
     justify-content: center;
     flex-direction: column;
     padding: 50px;
-    gap: 50px;
+    gap: 0px;
 }
 .login-container__form__input label{
     width: 100%;
@@ -105,6 +105,7 @@ h1{
     text-transform: uppercase;
     padding: 0rem 0 0 1rem;
     color: var(--color-form);
+    margin: 40px 0 5px 0;
 }
 
 .login-container__form__input input, .login-container__form__input select{
@@ -137,6 +138,7 @@ h1{
     display: block;
     width: max-content;
     color: var(--color-text);
+    margin-top: 20px;
 }
 .form-link:hover{
     color: var(--color-text-hover);
@@ -182,18 +184,27 @@ select option{
     background-color: #0000;
     font-size: 1rem;
 }
-.return-button{
-    background-color: var(--color-primary);
-    box-shadow: 1px 1px 10px #ccc;
-    color: white;
-    padding: 1rem;
-    border-radius: 0 50% 50% 0;
+.return {
     position: absolute;
+    top: 20px;
+    left: 20px;
 }
-.return-button a{
+
+.return a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #333a;
+    color: #fff;
+    border-radius: 50%;
     text-decoration: none;
-    color: inherit;
-    font-size: 3rem;
+    transition: background-color 0.3s ease;
+}
+
+.return a:hover {
+    background-color: #555a;
 }
 .remember-container{
     display: flex;
@@ -236,3 +247,13 @@ select option{
     display: block;
 }
 
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none; /* Ocultar mensajes por defecto */
+  }
+
+  .error-message.active {
+    display: block; /* Mostrar mensaje cuando tiene la clase "active" */
+  }

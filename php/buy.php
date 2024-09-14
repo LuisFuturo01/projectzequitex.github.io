@@ -6,20 +6,44 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-?>
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (empty($_POST['total'])) {
+        $_SESSION['error_message'] = 'No puedes enviar esto';
+        header("Location: cart.php");
+        exit();
+    } else {
+        $_SESSION['total'] = $_POST['total'];
+        $total = $_SESSION['total'];
+        if ($total == 0) {
+            $_SESSION['error_message'] = 'No hay productos en el carrito';
+            header("Location: cart.php");
+            exit();
+        }
+        // Redirigir a la misma página pero con GET
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
+    }
+} else {
+    // Verificar si hay un total en la sesión
+    if (!isset($_SESSION['total']) || $_SESSION['total'] == 0) {
+        header("Location: cart.php");
+        exit();
+    }
+    $total = $_SESSION['total'];
+}
 
+?>
 <!DOCTYPE html>
-<html lang='es'>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <title>Carrito</title>
+    <title>Compra</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet preconnect">
     <link rel='icon' href='../img/logo-zequitex-mini.ico' type='image/x-icon'>
+    <link rel="stylesheet" href="../css/buy.css">
     <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/cursor.css">
-    <link rel="stylesheet" href="../css/cart.css">
 </head>
 <body>
     <header id="header-start" class="header-container">
@@ -114,40 +138,38 @@ if (!isset($_SESSION['usuario'])) {
     </header>
     <main>
         <div class="main-wrapper">
-            <button class="cerrar-sesion"><a href="account.php">Cuenta</a></button>
-            <div class="return">
-            <a href="../index.html" class="material-symbols-outlined">arrow_back</a>
-        </div>
-            <div class="container">
-                <h1>Tu Carrito</h1>
-                <form method="post" action="buy.php" class="cart-container">
-                    <table id="table" border="1">
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nombre del producto</th>
-                            <th>Descripción</th>
-                            <th>Precio/uni</th>
-                            <th>Imagen</th>
-                            <th>Cantidad</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="6">Total</td>
-                            <td id="total"></td>
-                        </tr>
-                    </tfoot>
-                    </table>
-                    <input type="hidden" name="total" id="precio-total">
-                    <input class="submit" type="submit" value="pagar" >
-                </form>
+            <div class="title">
+                <h1>Compra</h1>
             </div>
-        </div>
+            <div class="return">
+                <a href="cart.php" class="material-symbols-outlined">arrow_back</a>
+            </div>
+            <div class="container">
+                <div class="element left">
+                    <div class="qr">
+                        <img src="../img/qr-transferencia.jpg" alt="QR">
+                        <form action="pagado.php" method="post">
+                            <div class="mensaje">
+                                <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Escriba aquí cualquier información adicional, como la dirección de entrega, instrucciones especiales o preferencias. Por ejemplo: 'Dejar el paquete en la puerta trasera si no hay nadie en casa.'"></textarea>
+                            </div>
+                            <div class="inputs">
+                                <button type="submit" class="whatsapp-button">
+                                    <img src="../img/icons-contact/whatsapp.png" alt="WhatsApp icon">
+                                    Enviar con WhatsApp
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="element right">
+                    <div class="text">
+                        <p class="text-title">Monto a pagar: <span>Bs.<?php echo $total?></span></p>
+                        <p class="text-content">Por favor escanee el QR para realizar el pago por: </p>
+                        <ul id="element"></ul>
+                    </div>
+                </div>
+            </div>
+        </div> 
     </main>
     <footer class="footer">
         <div class="footer-content">
@@ -163,9 +185,6 @@ if (!isset($_SESSION['usuario'])) {
             <p>&copy; 2024 Zequitex S.R.L. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <script src="../js/cursor.js"></script>
-    <script src="../js/cart.js"></script>
+    <script src="../js/buyy.js"></script>
 </body>
 </html>
-
-

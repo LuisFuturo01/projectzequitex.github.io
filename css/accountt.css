@@ -1,0 +1,143 @@
+:root {
+  --bg-main-window: #000000f2;
+  --bg-form: #222222e6;
+  --border-form: #444444ff;
+  --color-form: #ffffff;
+  --bg-form-input: #111111cc;
+  --bg-form-input-hover: #1a1a1aee;
+  --color-text: #ffffff;
+  --color-text-hover: #cccccc;
+  --bg-color: #676f67cc;
+  --color-primary: #1a5f2a;
+  --color-secondary: #2e8b57;
+  --color-accent: #ffd700;
+  
+  --shadow-light: 0 2px 5px #0000004d;
+  --shadow-medium: 0 4px 8px #00000066;
+  
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+  --border-radius-large: 16px;
+  
+  --transition-speed: 0.3s;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--color-text);
+  font-family: Arial, sans-serif;
+}
+
+.main-wrapper {
+  padding: 2rem;
+}
+
+.account-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.account-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.account-title {
+  color: var(--color-accent);
+  font-size: 2rem;
+}
+
+.account-container {
+  background-color: var(--bg-form);
+  border-radius: var(--border-radius-medium);
+  padding: 2rem;
+  box-shadow: var(--shadow-medium);
+}
+
+.account-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  background-color: var(--bg-form-input);
+  color: var(--color-form);
+  border: 1px solid var(--border-form);
+  border-radius: var(--border-radius-small);
+  padding: 0.5rem;
+  transition: background-color var(--transition-speed);
+}
+
+.form-group input:hover,
+.form-group input:focus {
+  background-color: var(--bg-form-input-hover);
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.action-btn {
+  background-color: var(--color-primary);
+  color: var(--color-form);
+  border: none;
+  border-radius: var(--border-radius-small);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.action-btn:hover {
+  background-color: var(--color-secondary);
+}
+
+#cancel-btn {
+  background-color: #6a0000;
+}
+
+#cancel-btn:hover {
+  background-color: #aa0000;
+}
+.footer{
+  max-width: 100%;
+}
+.return {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+}
+
+.return a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #333a;
+  color: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.return a:hover {
+  background-color: #555a;
+}

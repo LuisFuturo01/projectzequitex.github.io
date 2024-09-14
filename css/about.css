@@ -1,0 +1,93 @@
+:root {
+    --color-background: #676f67cc;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #e0e0e0;
+    --color-accent: #ffd700;
+    --font-size-base: 1.1rem;
+    --font-size-title: 2.5rem;
+    --font-size-subtitle: 1.8rem;
+    --spacing-base: 20px;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px #fff8;
+}
+
+.main-container {
+    background-color: var(--color-background);
+    min-height: 100vh;
+    padding: var(--spacing-base);
+}
+
+.main-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: calc(var(--spacing-base) * 1.5);
+    color: var(--color-text-primary);
+}
+
+.main-title {
+    color: var(--color-accent);
+    text-align: center;
+    font-size: var(--font-size-title);
+    margin-bottom: calc(var(--spacing-base) * 1.5);
+}
+
+section {
+    background-color: #333a;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-base);
+    margin-bottom: calc(var(--spacing-base) * 2);
+    box-shadow: var(--box-shadow);
+}
+
+h2 {
+    color: var(--color-accent);
+    font-size: var(--font-size-subtitle);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: calc(var(--spacing-base) * 0.5);
+    margin-bottom: var(--spacing-base);
+}
+
+.wrapper__concept {
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    text-align: justify;
+    margin-bottom: var(--spacing-base);
+    font-weight: 450;
+}
+
+.map-container {
+    height: 400px;
+    margin-top: var(--spacing-base);
+}
+
+.map-container__element {
+    height: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+gmpx-store-locator {
+    --gmpx-color-surface: #ffffff;
+    --gmpx-color-on-surface: #333333;
+    --gmpx-color-on-surface-variant: #5f6368;
+    --gmpx-color-primary: var(--color-accent);
+    --gmpx-color-outline: rgba(255, 255, 255, 0.2);
+    --gmpx-fixed-panel-width-row-layout: 350px;
+    --gmpx-fixed-panel-height-column-layout: 60%;
+    --gmpx-font-family-base: Arial, sans-serif;
+    --gmpx-font-size-base: var(--font-size-base);
+    --gmpx-hours-color-open: #4caf50;
+    --gmpx-hours-color-closed: #f44336;
+    --gmpx-rating-color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+    .main-wrapper {
+        padding: var(--spacing-base);
+    }
+    
+    section {
+        padding: calc(var(--spacing-base) * 0.75);
+    }
+}

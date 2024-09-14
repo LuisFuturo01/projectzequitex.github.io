@@ -52,7 +52,7 @@
     <!-- Enlace a hoja de estilos -->
     <link rel="stylesheet" href="../css/cursor.css">
     <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/contacts.css">
+    <link rel="stylesheet" href="../css/contact.css">
     <link rel="stylesheet" href="../css/maps.css">
 </head>
 <body>
@@ -155,46 +155,48 @@
             </aside>
         </div>
     </header>
-    <main class="main-wrapper">
-        <div class="main-container">
-            <div class="main-container__network">
-                <a href="https://whatsapp.com">
-                    <label for="">whatsapp</label>
-                    <img src="../img/icons-contact/whatsapp.png" alt="">
-                </a>
-            </div>
-            <div class="main-container__network">
-                <a href="https://faceboook.com">
-                    <label for="">facebook</label>
-                    <img src="../img/icons-contact/facebook.png" alt="">
-                </a>
-            </div>
-            <div class="main-container__network">
-                <a href="https://instagram.com">
-                    <label for="">instagram</label>
-                    <img src="../img/icons-contact/instagram.png" alt="">
-                </a>
-            </div>
-            <div class="main-container__network">
-                <a href="https://linkedin.com">
-                    <label for="">linkedin</label>
-                    <img src="../img/icons-contact/linkedin.png" alt="">
-                </a>
-            </div>
-        </div>
-        <div class="informacion">
-            <p>Correo de soporte: <a href="zequitex:zequitex@gmail.com">zequitex@gmail.com</a></p>
-            <p>Teléfono de atención al cliente: <a href="tel:+59172047100">+591 72047100</a></p>
-            <p>Horario de atención: Lunes a Viernes, 9 AM - 6 PM</p>
-        </div>
-        <h2 class="wrapper__title">Ubicación</h2>
-            <div class="map-container">
-                <gmpx-api-loader key="AIzaSyBfwz8T0rSXEZE6OizpAKouJrQQX_egIPI" solution-channel="GMP_QB_locatorplus_v10_c"></gmpx-api-loader>
-                <div id="holaxd" class="map-container__element">
-                    <gmpx-store-locator map-id="DEMO_MAP_ID"></gmpx-store-locator>
+    <div class="contacts-container">
+        <main class="main-wrapper">
+            <h1 class="main-title">Contacto</h1>
+            
+            <section class="contact-info">
+                <h2>Información de Contacto</h2>
+                <ul>
+                    <li><strong>Correo de soporte:</strong> <a href="mailto:zequitex@gmail.com">zequitex@gmail.com</a></li>
+                    <li><strong>Teléfono de atención al cliente:</strong> <a href="tel:+59172047100">+591 72047100</a></li>
+                    <li><strong>Horario de atención:</strong> Lunes a Viernes, 9 AM - 6 PM</li>
+                </ul>
+            </section>
+            
+            <section class="social-media">
+                <h2>Redes Sociales</h2>
+                <div class="social-icons">
+                    <a href="https://wa.me/59172047100?text=Hola%20Zequitex,%20quisiera%20contactarme%20con%20ustedes%20para%20recibir%20más%20información.%20Agradecería%20su%20respuesta." target="_blank" class="social-icon" title="WhatsApp">
+                        <img src="../img/icons-contact/whatsapp.png" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100093460210305" target="_blank" class="social-icon" title="Facebook">
+                        <img src="../img/icons-contact/facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/josezeballos21/" target="_blank" class="social-icon" title="Instagram">
+                        <img src="../img/icons-contact/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/company/zequitex-s-r-l/" target="_blank" class="social-icon" title="LinkedIn">
+                        <img src="../img/icons-contact/linkedin.png" alt="LinkedIn">
+                    </a>
                 </div>
-            </div>
-    </main>
+            </section>
+            
+            <section class="location">
+                <h2>Ubicación</h2>
+                <div class="map-container">
+                    <gmpx-api-loader key="AIzaSyDu4O1c4frlJfK9Kjo1yAXJAaBWqJd8ZMc" solution-channel="GMP_QB_locatorplus_v10_c"></gmpx-api-loader>
+                    <div id="holaxd" class="map-container__element">
+                        <gmpx-store-locator map-id="DEMO_MAP_ID"></gmpx-store-locator>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
     <footer class="footer">
         <div class="footer-content">
             <ul class="footer-links">

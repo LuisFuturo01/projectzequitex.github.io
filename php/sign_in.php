@@ -10,6 +10,12 @@ $direc = $_POST['dir'];
 $city = $_POST['ciudad'];
 $depar = $_POST['dep'];
 $genero = $_POST['gen'];
+if(empty($name) || empty($ci) || empty($mail) || empty($usuario) || empty($password) || empty($phone) || empty($direc) || empty($city) || empty($depar) || empty($genero)){
+    echo "  <script>
+            alert('Por favor, completa todos los campos');
+            window.location.href = '../html/sign_in.html';
+        </script>";
+}
 $hash = password_hash($password, PASSWORD_DEFAULT);
 $verify="SELECT usuario FROM clientes WHERE usuario = '$usuario'";
 $ans=$conn->query($verify);

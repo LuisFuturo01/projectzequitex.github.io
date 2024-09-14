@@ -52,7 +52,8 @@
     <!-- Enlace a hoja de estilos -->
     <link rel="stylesheet" href="../css/cursor.css">
     <link rel="stylesheet" href="../css/menu.css">
-    <link rel="stylesheet" href="../css/storeb.css">
+    <link rel="stylesheet" href="../css/store.css">
+    <link rel="stylesheet" href="../css/loader.css">
 </head>
 <body>
     <header id="header-start" class="header-container">
@@ -159,12 +160,18 @@
     </header>
     <main>
         <div class="main-wrapper">
-            <div class="main-wrapper__products">
-
+            <div class="title">
+                <h1 class="title-text">Productos</h1>
+            </div>
+            <div id="loader" class="loader">
+                <div class="spinner"></div>
+            </div>
+            <div class="main-wrapper__products main-container-products" style="display: none;">
+                
             </div>
             <form action="../php/cartProd.php" method="post" class="form-buy">
                 <input type="hidden" name="selectedProducts" id="input" value="">
-                <button type="submit" class="send-button">COMPRAR</button>
+                <button type="submit" class="send-button">AÑADIR AL CARRITO</button>
             </form>
         </div>
     </main>
@@ -185,5 +192,6 @@
     <script src="../js/storeProdc.js"></script>
     <script src="../js/cursor.js"></script>
     <script src="../js/menu.js"></script>
+    <script src="../js/loader.js"></script>
 </body>
 </html>

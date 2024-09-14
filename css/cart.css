@@ -144,3 +144,25 @@ form{
 .delete:hover{
     background-color: #f00f;
 }
+.return {
+    position: absolute;
+    top: 160px;
+    left: 20px;
+  }
+  
+  .return a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #333a;
+    color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .return a:hover {
+    background-color: #555a;
+  }

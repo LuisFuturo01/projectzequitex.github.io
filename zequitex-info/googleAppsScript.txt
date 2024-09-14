@@ -1,0 +1,77 @@
+function doPost(e) {
+  var jsonData = JSON.parse(e.postData.contents);
+  var nombreCliente = jsonData.cliente.nombre_completo;
+  var correoCliente = jsonData.cliente.correo;
+  var servicios = jsonData.servicios;
+
+  var mensaje = "Hola " + nombreCliente + ",\n\n";
+  mensaje += "Gracias por solicitar información sobre los siguientes servicios:\n\n";
+  
+  var archivosAdjuntos = [];
+  var folderId = '1kdgFN__pTC3kmr99Tt6y7uhRovOkgIZg';
+  var folder = DriveApp.getFolderById(folderId);
+
+  servicios.forEach(function(servicio) {
+    mensaje += "Servicio: " + servicio.nombre_servicio + "\n";
+    
+    var nombreArchivo = servicio.servicioID + ".pdf";
+    Logger.log('Buscando archivo: ' + nombreArchivo);
+    
+    // Forzar una nueva búsqueda de archivos
+    folder.refreshContent();
+    var archivos = folder.getFilesByName(nombreArchivo);
+    var archivoValido = null;
+    var contadorArchivos = 0;
+    
+    while (archivos.hasNext()) {
+      contadorArchivos++;
+      var archivo = archivos.next();
+      Logger.log('Archivo encontrado #' + contadorArchivos + ': ' + archivo.getName() + ', ID: ' + archivo.getId() + ', Tamaño: ' + archivo.getSize() + ' bytes, Última modificación: ' + archivo.getLastUpdated());
+      
+      try {
+        // Forzar una nueva lectura del contenido del archivo
+        DriveApp.getFileById(archivo.getId());
+        var blob = archivo.getBlob();
+        if (blob.getBytes().length > 0) {
+          archivoValido = archivo;
+          Logger.log('Archivo válido encontrado: ' + archivo.getName() + ', ID: ' + archivo.getId());
+          break; // Salimos del bucle al encontrar un archivo válido
+        } else {
+          Logger.log('Archivo encontrado pero está vacío: ' + archivo.getName() + ', ID: ' + archivo.getId());
+        }
+      } catch (e) {
+        Logger.log('Error al procesar archivo: ' + archivo.getName() + ', ID: ' + archivo.getId() + ', Error: ' + e.toString());
+      }
+    }
+    
+    if (archivoValido) {
+      try {
+        var blob = archivoValido.getBlob().setName(nombreArchivo);
+        archivosAdjuntos.push(blob);
+        var enlaceArchivo = "https://drive.google.com/file/d/" + archivoValido.getId() + "/view?usp=sharing";
+        mensaje += "El archivo '" + nombreArchivo + "' (ID: " + archivoValido.getId() + ") se ha adjuntado a este correo.\n";
+        mensaje += "También puedes acceder al archivo a través de este enlace: " + enlaceArchivo + "\n\n";
+        Logger.log('Archivo válido adjuntado: ' + nombreArchivo + ', ID: ' + archivoValido.getId());
+      } catch (e) {
+        mensaje += "Hubo un problema al procesar el archivo para este servicio.\n\n";
+        Logger.log('Error al procesar archivo válido: ' + e.toString());
+      }
+    } else {
+      mensaje += "No se encontró un archivo válido para este servicio.\n\n";
+      Logger.log('No se encontró archivo válido para: ' + nombreArchivo + '. Total de archivos encontrados: ' + contadorArchivos);
+    }
+  });
+
+  mensaje += "Si tienes problemas para abrir algún archivo adjunto, por favor intenta acceder a través de los enlaces proporcionados.\n\n";
+  mensaje += "Nos pondremos en contacto contigo pronto.\n\nSaludos,\nTu Empresa";
+  
+  MailApp.sendEmail({
+    to: correoCliente,
+    subject: 'Información sobre servicios solicitados',
+    body: mensaje,
+    attachments: archivosAdjuntos
+  });
+  Logger.log("Correo enviado a: " + correoCliente + " con " + archivosAdjuntos.length + " archivos adjuntos.");
+  
+  return ContentService.createTextOutput('Solicitud procesada correctamente.');
+}

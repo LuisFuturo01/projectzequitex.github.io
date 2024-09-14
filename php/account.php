@@ -1,25 +1,24 @@
 <?php
+include('conect.php');
 session_start();
-
-if (!isset($_SESSION['usuario'])) {
-    header("Location: ../html/login.html");
-    exit();
-}
+$usuario = $_SESSION['usuario'];
+$consulta = "SELECT nombre_completo,ci,correo,contraseña,telefono,direccion,usuario FROM clientes WHERE clienteID = $usuario";
+$respuesta = $conn->query($consulta);
+$cliente = $respuesta->fetch_assoc();
 
 ?>
-
 <!DOCTYPE html>
-<html lang='es'>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <title>Carrito</title>
+    <title>Cuenta</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet preconnect">
     <link rel='icon' href='../img/logo-zequitex-mini.ico' type='image/x-icon'>
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/cursor.css">
-    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/accountt.css">
 </head>
 <body>
     <header id="header-start" class="header-container">
@@ -113,38 +112,52 @@ if (!isset($_SESSION['usuario'])) {
         </div>
     </header>
     <main>
-        <div class="main-wrapper">
-            <button class="cerrar-sesion"><a href="account.php">Cuenta</a></button>
-            <div class="return">
-            <a href="../index.html" class="material-symbols-outlined">arrow_back</a>
+        <div class="return">
+            <a href="cart.php" class="material-symbols-outlined">arrow_back</a>
         </div>
-            <div class="container">
-                <h1>Tu Carrito</h1>
-                <form method="post" action="buy.php" class="cart-container">
-                    <table id="table" border="1">
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nombre del producto</th>
-                            <th>Descripción</th>
-                            <th>Precio/uni</th>
-                            <th>Imagen</th>
-                            <th>Cantidad</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="6">Total</td>
-                            <td id="total"></td>
-                        </tr>
-                    </tfoot>
-                    </table>
-                    <input type="hidden" name="total" id="precio-total">
-                    <input class="submit" type="submit" value="pagar" >
+        <div class="main-wrapper account-wrapper">
+            <div class="account-header">
+                <h1 class="account-title">Mi Cuenta</h1>
+            </div>
+            <div class="account-container">
+                <form id="account-form" class="account-form" method="POST" action="actualizar_cuenta.php">
+                    <div class="form-group">
+                        <label for="nombre_completo">Nombre completo:</label>
+                        <input type="text" id="nombre_completo" name="nombre_completo" value="<?php echo $cliente['nombre_completo']; ?>" readonly autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="ci">CI:</label>
+                        <input type="text" id="ci" name="ci" value="<?php echo $cliente['ci']; ?>" readonly autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo:</label>
+                        <input type="email" id="correo" name="correo" value="<?php echo $cliente['correo']; ?>" readonly autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="contraseña_actual">Contraseña actual:</label>
+                        <input type="text" id="contraseña_actual" name="contraseña_actual" value="" readonly autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="contraseña_nueva">Contraseña nueva:</label>
+                        <input type="text" id="contraseña_nueva" name="contraseña_nueva" value="" readonly autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" value="<?php echo $cliente['telefono']; ?>" readonly autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección:</label>
+                        <input type="text" id="direccion" name="direccion" value="<?php echo $cliente['direccion']; ?>" readonly autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario">Usuario:</label>
+                        <input type="text" id="usuario" name="usuario" value="<?php echo $cliente['usuario']; ?>" readonly autocomplete="off">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="edit-btn" class="action-btn">Editar</button>
+                        <button type="button" id="cancel-btn" class="action-btn" style="display: none;">Cancelar</button>
+                        <button type="submit" id="save-btn" class="action-btn" style="display: none;">Guardar</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -164,8 +177,6 @@ if (!isset($_SESSION['usuario'])) {
         </div>
     </footer>
     <script src="../js/cursor.js"></script>
-    <script src="../js/cart.js"></script>
+    <script src="../js/account.js"></script>
 </body>
 </html>
-
-

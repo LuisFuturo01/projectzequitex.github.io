@@ -11,7 +11,13 @@ if (isset($_SESSION['selectedServices'])) {
 } else {
     $selectedServices = isset($_POST['selectedServices']) ? $_POST['selectedServices'] : '';
 }
-
+if(empty($selectedServices)){
+    echo "<script>
+        alert('No se ha seleccionado ningún servicio');
+        window.location.href='../html/products.html';
+    </script>";
+    exit();
+}
 // Convertir la cadena de servicios en un array y sanitizar
 $servicesArray = explode(',', $selectedServices);
 $servicesArray = array_map('intval', $servicesArray);
