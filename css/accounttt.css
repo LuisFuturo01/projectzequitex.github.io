@@ -120,7 +120,6 @@ body {
   max-width: 100%;
 }
 .return {
-  position: absolute;
   top: 100px;
   left: 20px;
 }
@@ -140,4 +139,19 @@ body {
 
 .return a:hover {
   background-color: #555a;
+}
+.close-account{
+  top: 100px;
+  right: 20px;
+  position: absolute;
+}
+.close-account-btn{
+  background-color: #007e65;
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.close-account-btn:hover{
+  background-color: #00c8bb;
 }

@@ -18,7 +18,7 @@ $cliente = $respuesta->fetch_assoc();
     <link rel='icon' href='../img/logo-zequitex-mini.ico' type='image/x-icon'>
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/cursor.css">
-    <link rel="stylesheet" href="../css/accountt.css">
+    <link rel="stylesheet" href="../css/accounttt.css">
 </head>
 <body>
     <header id="header-start" class="header-container">
@@ -114,6 +114,9 @@ $cliente = $respuesta->fetch_assoc();
     <main>
         <div class="return">
             <a href="cart.php" class="material-symbols-outlined">arrow_back</a>
+        </div>
+        <div class="close-account">
+            <a href="logout.php" class="close-account-btn">Cerrar Sesión</a>
         </div>
         <div class="main-wrapper account-wrapper">
             <div class="account-header">

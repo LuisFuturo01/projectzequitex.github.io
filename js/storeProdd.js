@@ -18,6 +18,8 @@ function fetchServices(term = '') {
                 </div>
                 <div class="box-product__container-text">
                     <p class="box-product__title">${service.nombre_producto}</p>
+                    <span class="price">Bs. ${service.precio}</span>
+                    <span class="description">${service.descripcion}</span>
                     <button class='button-select'>SELECCIONAR</button>
                 </div>
                 `;
