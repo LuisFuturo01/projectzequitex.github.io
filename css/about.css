@@ -1,5 +1,5 @@
 :root {
-    --color-background: #676f67cc;
+    --color-background: #c8ece3;
     --color-text-primary: #ffffff;
     --color-text-secondary: #e0e0e0;
     --color-accent: #ffd700;
@@ -22,6 +22,7 @@
     margin: 0 auto;
     padding: calc(var(--spacing-base) * 1.5);
     color: var(--color-text-primary);
+    filter: drop-shadow(1px 1px 3px black);
 }
 
 .main-title {
@@ -32,7 +33,7 @@
 }
 
 section {
-    background-color: #333a;
+    background-color: #3f6f6f72 !important;
     border-radius: var(--border-radius);
     padding: var(--spacing-base);
     margin-bottom: calc(var(--spacing-base) * 2);
@@ -45,6 +46,7 @@ h2 {
     border-bottom: 2px solid var(--color-accent);
     padding-bottom: calc(var(--spacing-base) * 0.5);
     margin-bottom: var(--spacing-base);
+    padding: calc(var(--spacing-base) * 0.9);
 }
 
 .wrapper__concept {
@@ -54,6 +56,7 @@ h2 {
     text-align: justify;
     margin-bottom: var(--spacing-base);
     font-weight: 450;
+    padding: 2rem;
 }
 
 .map-container {

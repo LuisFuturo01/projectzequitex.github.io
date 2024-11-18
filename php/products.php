@@ -1,7 +1,7 @@
 <?php
 include('conect.php');
 
-$sql = "SELECT productoID, nombre_producto, descripcion, precio FROM productos";
+$sql = "SELECT productoID, nombre_producto, descripcion, precio, stock FROM productos";
 $result = $conn->query($sql);
 
 $products = [];

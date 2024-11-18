@@ -1,6 +1,12 @@
 <?php
 include('conect.php');
 session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../html/login.html");
+    exit();
+}
+
 $usuario = $_SESSION['usuario'];
 $consulta = "SELECT nombre_completo,ci,correo,contraseña,telefono,direccion,usuario FROM clientes WHERE clienteID = $usuario";
 $respuesta = $conn->query($consulta);
@@ -16,9 +22,9 @@ $cliente = $respuesta->fetch_assoc();
     <title>Cuenta</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet preconnect">
     <link rel='icon' href='../img/logo-zequitex-mini.ico' type='image/x-icon'>
-    <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/cursor.css">
-    <link rel="stylesheet" href="../css/accounttt.css">
+    <link rel="stylesheet" href="../css/menuu.css">
+    <link rel="stylesheet" href="../css/accoun.css">
 </head>
 <body>
     <header id="header-start" class="header-container">
@@ -180,6 +186,7 @@ $cliente = $respuesta->fetch_assoc();
         </div>
     </footer>
     <script src="../js/cursor.js"></script>
+    <script src="../js/cursow.js"></script>
     <script src="../js/account.js"></script>
 </body>
 </html>

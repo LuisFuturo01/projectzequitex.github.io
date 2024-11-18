@@ -1,3 +1,4 @@
+
 //creando el cursor personalizado
 const cursorHTML = `
     <div class="c-cursor js-cursor">
@@ -52,3 +53,7 @@ if(isTouch || !isTouch){
     document.body.classList.add(hasCustomCursosClass);
 }
 //Fin creando cursor personalizado
+
+
+
+

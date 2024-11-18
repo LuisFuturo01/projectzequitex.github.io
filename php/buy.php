@@ -7,31 +7,36 @@ if (!isset($_SESSION['usuario'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (empty($_POST['total'])) {
-        $_SESSION['error_message'] = 'No puedes enviar esto';
-        header("Location: cart.php");
-        exit();
-    } else {
-        $_SESSION['total'] = $_POST['total'];
-        $total = $_SESSION['total'];
-        if ($total == 0) {
-            $_SESSION['error_message'] = 'No hay productos en el carrito';
-            header("Location: cart.php");
-            exit();
-        }
-        // Redirigir a la misma página pero con GET
-        header("Location: " . $_SERVER['PHP_SELF']);
-        exit();
-    }
-} else {
-    // Verificar si hay un total en la sesión
-    if (!isset($_SESSION['total']) || $_SESSION['total'] == 0) {
+    // Verificar que vengan los datos necesarios
+    if (empty($_POST['total']) || empty($_POST['productos'])) {
+        $_SESSION['error_message'] = 'Datos incompletos';
         header("Location: cart.php");
         exit();
     }
+
+    // Guardar el total
+    $_SESSION['total'] = $_POST['total'];
     $total = $_SESSION['total'];
+
+    if ($total == 0) {
+        $_SESSION['error_message'] = 'No hay productos en el carrito';
+        header("Location: cart.php");
+        exit();
+    }
+
+    // Guardar la lista de productos
+    $_SESSION['productos_lista'] = $_POST['productos'];
+
+    // No redirigir, continuar con la ejecución de la página
+} else {
+    // Verificar si hay datos en la sesión
+    if (!isset($_SESSION['total']) || $_SESSION['total'] == 0 || !isset($_SESSION['productos_lista'])) {
+        header("Location: cart.php");
+        exit();
+    }
 }
 
+$total = $_SESSION['total'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Compra</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet preconnect">
     <link rel='icon' href='../img/logo-zequitex-mini.ico' type='image/x-icon'>
-    <link rel="stylesheet" href="../css/buy.css">
-    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/buyy.css">
+    <link rel="stylesheet" href="../css/menuu.css">
 </head>
 <body>
     <header id="header-start" class="header-container">
@@ -186,5 +191,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </footer>
     <script src="../js/buyy.js"></script>
+    <script src="../js/cursor.js"></script>
+    <script src="../js/cursow.js"></script>
+
 </body>
 </html>
+

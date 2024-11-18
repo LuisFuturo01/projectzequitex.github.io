@@ -5,7 +5,13 @@ session_start();
 
 $usuario = $_POST['UsuarioName'];
 $password = $_POST['UsuarioPassword'];
-$remember = isset($_POST['remember']) ? true : false;
+if (empty($_POST['remember'])) {
+    $remember = false;
+} else {
+    $remember = true; 
+}
+
+$_SESSION['remember'] = $remember;
 if (empty($usuario) || empty($password)) {
     echo "<script>
             alert('Por favor, completa todos los campos');
@@ -24,7 +30,7 @@ if ($result->num_rows > 0) {
     if (password_verify($password, $hashAlmacenado)) {
         $_SESSION['usuario'] = $row['clienteID'];
         if ($remember) {
-            $cookieExpire = time() + (30 * 24 * 60 * 60);
+            $cookieExpire = time() + (30 * 24 * 60 * 60); 
             setcookie(session_name(), session_id(), $cookieExpire, "/");
         } else {
             if (ini_get("session.use_cookies")) {
@@ -32,6 +38,7 @@ if ($result->num_rows > 0) {
                 setcookie(session_name(), session_id(), 0, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
             }
         }
+        
         if (isset($_SESSION['redirect_context'])) {
             header("Location: cartServ.php");
             exit();

@@ -17,9 +17,9 @@ if (!isset($_SESSION['usuario'])) {
     <title>Carrito</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet preconnect">
     <link rel='icon' href='../img/logo-zequitex-mini.ico' type='image/x-icon'>
-    <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/cursor.css">
-    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/cartt.css">
+    <link rel="stylesheet" href="../css/menuu.css">
 </head>
 <body>
     <header id="header-start" class="header-container">
@@ -144,6 +144,7 @@ if (!isset($_SESSION['usuario'])) {
                     </tfoot>
                     </table>
                     <input type="hidden" name="total" id="precio-total">
+                    <input type="hidden" name="productos" id="productos-lista">
                     <input class="submit" type="submit" value="pagar" >
                 </form>
             </div>
@@ -164,8 +165,8 @@ if (!isset($_SESSION['usuario'])) {
         </div>
     </footer>
     <script src="../js/cursor.js"></script>
-    <script src="../js/cart.js"></script>
+    <script src="../js/cursow.js"></script>
+    <script src="../js/cartt.js"></script>
 </body>
 </html>
-
 

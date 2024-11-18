@@ -26,7 +26,7 @@ if (!isset($_SESSION['usuario'])) {
     }
     $productsArray = explode(',', $selectedProducts);
     for($i=0 ; $i < count($productsArray) ; $i++){
-        $sql = "INSERT INTO carrito (clienteID, productoID) VALUES ($usuario, $productsArray[$i])";
+        $sql = "INSERT INTO carrito (clienteID, productoID) VALUES ('$usuario', '$productsArray[$i]')";
         $conn->query($sql);
     }
     header("Location: cart.php");

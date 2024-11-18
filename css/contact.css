@@ -1,5 +1,5 @@
 :root {
-    --color-background: #676f67cc;
+    --color-background: #c8ece3;
     --color-text: #ffffff;
     --color-text: #fff;
     --color-accent: #ffd700;
@@ -26,13 +26,14 @@
     text-align: center;
     color: var(--color-accent);
     margin-bottom: var(--spacing-section);
+    filter: drop-shadow(1px 1px 2px black);
   }
   
   section {
-    background-color: #333a;
+    background-color: #2c4545aa;
     border-radius: 10px;
-    padding: 2rem;
-    margin-bottom: var(--spacing-section);
+    padding: 2rem !important;
+    margin-bottom: var(--spacing-section) !important;
     box-shadow: 0 4px 6px #fff8;
     font-weight: 450;
   }
@@ -40,7 +41,7 @@
   h2 {
     color: var(--color-accent);
     border-bottom: 2px solid var(--color-accent);
-    padding-bottom: 0.5rem;
+    padding: 1rem;
     margin-bottom: 1rem;
   }
   

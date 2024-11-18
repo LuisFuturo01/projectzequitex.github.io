@@ -6,7 +6,7 @@
     <title>login</title>
     <meta name="robots" content="noindex">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet preconnect">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/loginn.css">
 </head>
 <body>
     <div class="background">
@@ -29,7 +29,10 @@
                     <input autocomplete="off"type="text" id="Usuario" name="UsuarioName" placeholder="Customer Name" required>
                     <span class="error-message">Por favor, ingresa tu Usuario.</span>
                     <label for="Password">Contraseña:</label>
-                    <input autocomplete="off"type="text" id="Password" name="UsuarioPassword" placeholder="Password" required>
+                    <div class="password">
+                        <input autocomplete="off"type="Password" id="Password" name="UsuarioPassword" placeholder="Password" required>
+                        <span class="material-symbols-outlined" id="see-password">Visibility_Off</span>
+                    </div>
                     <span class="error-message">Por favor, ingresa tu contraseña.</span>
                     <div class="remember-container">
                         <input type="checkbox" id="remember" name="remember">
@@ -45,6 +48,6 @@
             </form>
         </div>
     </div>
-    <script src="../js/log.js"></script>
+    <script src="../js/logg.js"></script>
 </body>
 </html>

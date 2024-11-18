@@ -1,0 +1,171 @@
+:root{
+    --bg-color:#c8ece3;
+    --color-primary:#0a1f11;
+}
+*{
+    box-sizing: border-box ;
+}
+html, body, div{
+    margin: 0;
+    padding: 0;
+}
+.main-wrapper{
+    background-color: var(--bg-color);
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem 5rem 5rem 5rem;
+}
+.cerrar-sesion{
+    margin: 0 0 0 -4rem;
+    background-color: var(--color-primary);
+    padding: 1rem;
+    border-radius: 25px;
+}
+.cerrar-sesion a{
+    text-decoration: none;
+    color: #fff;
+}
+.container{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5rem 2rem;
+}
+.footer{
+    width: 100%;
+}
+h1, .cart-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+h1{
+    font-size: 2rem;
+    color: var(--color-primary);
+}
+.cart-container{
+    font-size: 1rem;
+}
+.table-img{
+    width: 100px;
+    aspect-ratio: 1/1;
+}
+table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+
+tr {
+    height: 100%;
+    width: max-content;
+    border-collapse: collapse;
+}
+
+tr td {
+    height: 100%;
+    width: max-content;
+    text-align: center;
+    position: relative;
+    border-collapse: collapse;
+}
+
+.celda {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cant{
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+    padding: .2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: #fff;
+}
+.input-number {
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 40%;
+    text-align: center;
+    line-height: 3rem;
+    padding: 0;
+}
+.input-number::-webkit-inner-spin-button,
+.input-number::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+form{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+.submit{
+    background-color: var(--color-primary);
+    color: #fff;
+    width: max-content;
+    padding: 1rem;
+    border-radius: 25px;
+    text-transform: uppercase;
+}
+form{
+    background-color: transparent !important;
+}
+.delete{
+    background-color: #f22a;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: .4rem;
+    border-radius: 0 10% 10% 0;
+    height: 100%;
+    display: flex;
+    align-items: center;   
+    text-decoration: none;
+    width: max-content;
+}
+.delete:hover{
+    background-color: #f00f;
+}
+.return {
+    position: absolute;
+    top: 200px;
+    left: 20px;
+  }
+  
+  .return a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #333a;
+    color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .return a:hover {
+    background-color: #555a;
+  }

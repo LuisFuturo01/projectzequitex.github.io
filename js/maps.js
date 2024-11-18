@@ -1,4 +1,4 @@
-// Configuración del localizador de la tienda
+  // Configuración del localizador de la tienda
 const CONFIGURATION = {
     "capabilities": {
         "actions": false,

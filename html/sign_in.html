@@ -1,11 +1,12 @@
-<!DOCautocomplete="off" type html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="../css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../css/loginn.css">
 </head>
 <body>
     <div class="background">
@@ -22,30 +23,41 @@
                         <label for="Name">Nombre Completo:</label>
                         <input required autocomplete="off" type="text" id="Name" name="Usuario" placeholder="Complete Name">
                         <span class="error-message">Por favor, ingresa tu nombre.</span>
+
                         <label for="CI">Carnet de Identidad(CI):</label>
                         <input required autocomplete="off" type="text" id="CI" name="CI" placeholder="00000000">
                         <span class="error-message">Por favor, Ingresa tu CI.</span>
+
                         <label for="email">Correo Electrónico:</label>
                         <input required autocomplete="off" type="email" id="email" name="email" placeholder="pepito@hola.com">
                         <span class="error-message">Por favor, Ingresa tu correo.</span>
+
                         <label for="Usuario">Usuario:</label>
                         <input required autocomplete="off" type="text" id="Usuario" name="UsuarioName" placeholder="Customer Name">
                         <span class="error-message">Por favor, ingresa tu usuario.</span>
+
                         <label for="Password">Contraseña:</label>
-                        <input required autocomplete="off" type="text" id="Password" name="UsuarioPassword" placeholder="Password">
+                        <div class="password">
+                            <input autocomplete="off" type="password" id="Password" name="UsuarioPassword" placeholder="Password" required>
+                            <span class="material-symbols-outlined" id="see-password">visibility_off</span>
+                        </div>
                         <span class="error-message">Por favor, ingresa tu contraseña.</span>
                     </div>
+
                     <div class="form-part">
                         <label for="phone">Celular:</label>
                         <input required autocomplete="off" type="text" id="phone" name="phone" placeholder="7654321">
                         <span class="error-message">Por favor, ingresa tu celular.</span>
-                        <label for="Dir">Dirección</label>
+
+                        <label for="Dir">Dirección:</label>
                         <input required autocomplete="off" type="text" id="Dir" name="dir" placeholder="Clle. Peñaloza, La Paz, Bolivia">
                         <span class="error-message">Por favor, ingresa tu dirección.</span>
-                        <label for="ciudad">ciudad:</label>
+
+                        <label for="ciudad">Ciudad:</label>
                         <input required autocomplete="off" type="text" id="ciudad" name="ciudad" placeholder="El Alto">
                         <span class="error-message">Por favor, ingresa tu ciudad.</span>
-                        <label for="dep">DEPARTAMENTO</label>
+
+                        <label for="dep">Departamento:</label>
                         <select required class="login-select" name="dep" id="dep">
                             <option value="" disabled selected>Seleccionar...</option>
                             <option value="1">La Paz</option>
@@ -59,25 +71,29 @@
                             <option value="9">Pando</option>
                         </select>
                         <span class="error-message">Por favor, ingresa tu departamento.</span>
-                        <label for="gen">Genero:</label>
-                        <select required class="login-select" name="gen" id="gen" default="0">
+
+                        <label for="gen">Género:</label>
+                        <select required class="login-select" name="gen" id="gen">
                             <option value="" disabled selected>Seleccionar...</option>
                             <option value="M">Masculino</option>
                             <option value="F">Femenino</option>
                             <option value="O">Otro</option>
                         </select>
-                        <span class="error-message">Por favor, ingresa tu genero.</span>
+                        <span class="error-message">Por favor, ingresa tu género.</span>
                     </div>
+
                     <a class="form-link" href="login.html">Ya tengo una cuenta</a>
+
                     <div class="down-part">
                         <input class="form-button" type="submit" value="Crear">
                         <input type="reset" class="form-button">
                     </div>
-                    
                 </div>
             </form>
         </div>
     </div>
-    <script src="../js/log.js"></script>
+
+    <script src="../js/logg.js"></script>
+
 </body>
 </html>
