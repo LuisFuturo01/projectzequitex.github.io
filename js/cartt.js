@@ -6,7 +6,6 @@ function fetchServices() {
             const totalElement = document.getElementById('total');
             let granTotal = 0;
             let productQuantities = {};
-
             let productosLista = [];
             data.forEach((service) => { 
                 if (!productQuantities[service.productoID]) {

@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 09, 2024 at 03:54 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 20-03-2025 a las 04:53:06
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `zequitex`
+-- Base de datos: `zequitex`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carrito`
+-- Estructura de tabla para la tabla `carrito`
 --
 
 CREATE TABLE `carrito` (
@@ -34,19 +34,19 @@ CREATE TABLE `carrito` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `carrito`
+-- Volcado de datos para la tabla `carrito`
 --
 
 INSERT INTO `carrito` (`CarritoID`, `clienteID`, `productoID`) VALUES
-(17, 1, 3),
-(20, 6, 1),
-(21, 6, 5),
-(22, 6, 2);
+(33, 1, 1),
+(52, 4, 9),
+(53, 4, 11),
+(54, 4, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estructura de tabla para la tabla `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -55,7 +55,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `categorias`
+-- Volcado de datos para la tabla `categorias`
 --
 
 INSERT INTO `categorias` (`categoriaID`, `nombre_categoria`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `categorias` (`categoriaID`, `nombre_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clientes`
+-- Estructura de tabla para la tabla `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -89,21 +89,19 @@ CREATE TABLE `clientes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `clientes`
+-- Volcado de datos para la tabla `clientes`
 --
 
 INSERT INTO `clientes` (`clienteID`, `nombre_completo`, `ci`, `correo`, `contraseña`, `telefono`, `direccion`, `ciudad`, `departamentoID`, `fecha_registro`, `genero`, `activo`, `usuario`) VALUES
-(1, 'Luis Zeballos', '12896709', 'luis.futuro01@gmail.com', '$2y$10$6IYC5WCpofsEnDZZmdWXl.ZwaY.BjnUi/grEcb9mQ//3yyOmNfRry', '71556955', 'Clle. peñaloza', 'La paz', 1, '2024-09-09', 'M', 1, 'LuisFuturo'),
-(2, 'Alejandro Quiroz', '891268451', 'luis.az.quiroz@gmail.com', '$2y$10$b8XRIvcRZb20klfzEkKnWO4AShMVO5cSrDM0Q1ES2phl.ndzU4QAO', '71556955', 'la paz', 'la paz', 1, '2024-09-09', 'M', 1, 'Alejandro'),
-(3, 'Jose Luis', '3348587', 'zequitex@gmail.com', '$2y$10$PyOy9z.e30HXBqLdSruRWef8URkn/fZ53Bwi2FhXjYVqD3id4dCF.', '72047100', '', 'oruro', 4, '2024-09-09', 'M', 1, 'pepe'),
-(4, 'Antonio Rojas', '12345678', 'www.ranulfnidor@gmail.com', '$2y$10$8M0vn/MZDfmOIk7j7856VOtD6ZEiNk9rBy2naGxDepiEOUeqYkRvK', '65533340', 'satelite mi altito', 'El Alto', 1, '2024-09-18', 'O', 1, 'Antonio'),
-(5, 'victor', '9101491', 'castrovictorhugo2006@gmail.com', '$2y$10$VLtDEokOKKUruLvuxq1u5OdKQzJTyAwNImf78eKsltkkvltplOh5y', '78839961', 'SOPOCACHI', 'La Paz', 1, '2024-09-27', 'M', 1, 'vico'),
-(6, 'Alejandro Morales', '12993402', 'alejandritoms@gmail.com', '$2y$10$7IJoEB2gxvPwwaZJ9ZSht.CDlVWWyVIPvVyeoFxBy9X0F9hpUDhBq', '71556955', '20 de octubre', 'la paz', 1, '2024-10-04', 'M', 1, 'morales');
+(1, 'user123', '7894561', 'luis.futuro.01@gmail.com', '$2y$10$18ot39uZQko5VT1tHUNZnOJ32vkP.ucOu2GOArueXDcSlPY5P0ghq', '7894561', 'la paz', 'la paz', 1, '2024-10-09', 'M', 1, 'user1234'),
+(2, 'Sabrina Abril Aguilar Valdiviezo ', '10008456', 'sabriav23@gmail.com', '$2y$10$YhX0qz1G.U8I5L49YILQsu5qBZl92GitJx.N.eUxJ7doX9rNZuCAO', '63214016', 'Av.Arce', 'La Paz', 1, '2024-10-09', 'O', 1, 'Sabryap'),
+(4, 'luis alejandro zeballos quiroz', '12896709', 'luis.futuro.01@gmail.com', '$2y$10$5fsxeGbKWRQEEtMnDVulfewMQxxRMGkgOM.OREJ9.Kh0FEp5j2rDm', '71556955', 'Clle. Peñaloza, Villa Victoria', 'La Paz', 1, '2024-11-17', 'M', 1, 'luisfuturo01'),
+(6, 'Javier y Boris', '1212123121', 'luis.futuro.01@gmail.com', '$2y$10$d5UL9qpgDbsSPpt3I1bCYesKXVV2xnX9Xq703jczmRArp6KD0s/7K', '715569555', 'Peñaloza', 'La Paz', 1, '2024-11-22', 'M', 1, 'javier');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `departamentos`
+-- Estructura de tabla para la tabla `departamentos`
 --
 
 CREATE TABLE `departamentos` (
@@ -112,7 +110,7 @@ CREATE TABLE `departamentos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `departamentos`
+-- Volcado de datos para la tabla `departamentos`
 --
 
 INSERT INTO `departamentos` (`departamentoID`, `nombre_departamento`) VALUES
@@ -129,7 +127,7 @@ INSERT INTO `departamentos` (`departamentoID`, `nombre_departamento`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `direcciones_envio`
+-- Estructura de tabla para la tabla `direcciones_envio`
 --
 
 CREATE TABLE `direcciones_envio` (
@@ -143,18 +141,34 @@ CREATE TABLE `direcciones_envio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `direcciones_envio`
+-- Volcado de datos para la tabla `direcciones_envio`
 --
 
 INSERT INTO `direcciones_envio` (`direccionID`, `clienteID`, `nombre_destinatario`, `direccion`, `ciudad`, `departamentoID`, `referencia`) VALUES
 (1, 1, 'Luis Zeballos', 'Clle. peñaloza', '', 1, '71556955'),
 (2, 1, 'Luis Zeballos', 'Clle. peñaloza', '', 1, '71556955'),
-(3, 5, 'victor', 'SOPOCACHI', '', 1, '78839961');
+(3, 5, 'victor', 'SOPOCACHI', '', 1, '78839961'),
+(4, 1, 'user123', 'la paz', '', 1, '798765432'),
+(5, 2, 'Sabrina Abril Aguilar Valdiviezo ', 'Av.Arce', '', 1, '63214016'),
+(6, 1, 'user123', 'la paz', '', 1, '7894561'),
+(7, 1, 'user123', 'la paz', '', 1, '7894561'),
+(8, 1, 'user123', 'la paz', '', 1, '7894561'),
+(9, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
+(10, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
+(11, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
+(12, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
+(13, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
+(14, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
+(15, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
+(16, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
+(17, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
+(18, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
+(19, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `formas_pago`
+-- Estructura de tabla para la tabla `formas_pago`
 --
 
 CREATE TABLE `formas_pago` (
@@ -163,7 +177,7 @@ CREATE TABLE `formas_pago` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `formas_pago`
+-- Volcado de datos para la tabla `formas_pago`
 --
 
 INSERT INTO `formas_pago` (`forma_pagoID`, `nombre_forma_pago`) VALUES
@@ -172,7 +186,7 @@ INSERT INTO `formas_pago` (`forma_pagoID`, `nombre_forma_pago`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pedidos`
+-- Estructura de tabla para la tabla `pedidos`
 --
 
 CREATE TABLE `pedidos` (
@@ -188,18 +202,30 @@ CREATE TABLE `pedidos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pedidos`
+-- Volcado de datos para la tabla `pedidos`
 --
 
 INSERT INTO `pedidos` (`pedidoID`, `clienteID`, `fecha_pedido`, `fecha_entrega`, `total`, `forma_pagoID`, `detalle`, `servicioID`, `productoID`) VALUES
-(1, 1, '2024-09-18 20:12:35', NULL, 50.00, 1, 'dszrrze', NULL, NULL),
-(2, 1, '2024-09-18 20:14:34', NULL, 11490.00, 1, 'w3243ewsessytgytgfy', NULL, NULL),
-(3, 5, '2024-09-27 18:02:31', NULL, 175.00, 1, '', NULL, NULL);
+(1, 2, '2024-10-09 19:17:10', NULL, 100.00, 1, 'Entregar el producto en el condominio Torres del Poeta, torre C', NULL, NULL),
+(2, 1, '2024-10-09 23:34:22', NULL, 288.00, 1, '', NULL, NULL),
+(3, 1, '2024-10-09 23:37:05', NULL, 100.00, 1, '', NULL, NULL),
+(4, 1, '2024-11-07 04:52:11', NULL, 50.00, 1, '', NULL, NULL),
+(5, 4, '2024-11-17 20:12:47', NULL, 50.00, 1, '', NULL, NULL),
+(6, 4, '2024-11-18 02:51:23', NULL, 50.00, 1, '', NULL, NULL),
+(7, 4, '2024-11-18 02:52:19', NULL, 500.00, 1, '', NULL, NULL),
+(8, 4, '2024-11-18 03:07:43', NULL, 50.00, 1, '', NULL, NULL),
+(9, 4, '2024-11-18 03:09:46', NULL, 500.00, 1, '', NULL, NULL),
+(10, 4, '2024-11-18 03:10:46', NULL, 300.00, 1, '', NULL, NULL),
+(11, 4, '2024-11-18 03:11:20', NULL, 50.00, 1, '', NULL, NULL),
+(12, 4, '2024-11-18 03:11:57', NULL, 50.00, 1, '', NULL, NULL),
+(13, 4, '2024-11-18 03:12:12', NULL, 50.00, 1, '', NULL, NULL),
+(14, 4, '2024-11-21 02:49:30', NULL, 100.00, 1, '', NULL, NULL),
+(15, 4, '2024-11-21 02:54:08', NULL, 75.00, 1, 'entregue en la paz', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
 CREATE TABLE `productos` (
@@ -212,22 +238,22 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `productos`
+-- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`productoID`, `nombre_producto`, `descripcion`, `precio`, `stock`, `categoriaID`) VALUES
-(1, 'CONJUNTO NEGRO', 'conjunto de deportivo negro con lineas rojas de fergus', 50.00, 100, 1),
-(2, 'CONJUNTO ROJO', 'conjunto rojo con plomo de fergus', 50.00, 100, 1),
-(3, 'CONJUNTO AMARILLO-AZUL', 'conjunto amarillo con azul de fergus', 50.00, 100, 1),
-(4, 'CONJUNTO ROJO-AZUL', 'conjunto rojo con azul de lorem con lineas blancas ', 50.00, 100, 1),
-(5, 'CONJUNTO NEGRO-AZUL', 'conjunto negro con azul y blanco, de fergus', 50.00, 100, 1),
-(6, 'CONJUNTO ARGENTINO', 'conjunto argentino con el 3 mundial', 50.00, 100, 1),
+(1, 'CONJUNTO NEGRO', 'conjunto de deportivo negro con lineas rojas de fergus', 50.00, 0, 1),
+(2, 'CONJUNTO ROJO', 'conjunto rojo con plomo de fergus', 50.00, 0, 1),
+(3, 'CONJUNTO AMARILLO-AZUL', 'conjunto amarillo con azul de fergus', 50.00, 87, 1),
+(4, 'CONJUNTO ROJO-AZUL', 'conjunto rojo con azul de lorem con lineas blancas ', 50.00, 97, 1),
+(5, 'CONJUNTO NEGRO-AZUL', 'conjunto negro con azul y blanco, de fergus', 50.00, 95, 1),
+(6, 'CONJUNTO ARGENTINO', 'conjunto argentino con el 3 mundial', 50.00, 99, 1),
 (7, 'CONJUNTO BLANCO-PLOMO', 'conjunto blanco con plomo de adidas con diseños rojos y negros', 50.00, 100, 1),
 (8, 'CONJUNTO BLANCO-NEGRO', 'conjunto blanco con negro de psg con patrocinio de nike', 50.00, 100, 1),
 (9, 'GORRA COMPLETA', 'gorra para viaje ploma, de scpta', 25.00, 50, 2),
 (10, 'GORRA CREMA NIKE', 'gorra color crema de nike con bordado LA', 25.00, 50, 2),
 (11, 'GORRA ROJA NY', 'gorra roja con frente larga de NY', 25.00, 50, 2),
-(12, 'GORRA BLANCA', 'gorra blanca bordada con negro ajustable', 25.00, 50, 2),
+(12, 'GORRA BLANCA', 'gorra blanca bordada con negro ajustable', 25.00, 49, 2),
 (13, 'GORRA PLOMA-MALLA', 'gorra Plomma con malla de triumph motorcycles', 25.00, 50, 2),
 (14, 'GORRA CAQUI-BOLIVIA', 'Gorra caqui de bolivia color beich, multicolor', 25.00, 50, 2),
 (15, 'GORRA NEGRA-ADIDAS', 'gorra negra con malla, de adidas deportiva', 25.00, 50, 2),
@@ -262,7 +288,7 @@ INSERT INTO `productos` (`productoID`, `nombre_producto`, `descripcion`, `precio
 -- --------------------------------------------------------
 
 --
--- Table structure for table `servicios`
+-- Estructura de tabla para la tabla `servicios`
 --
 
 CREATE TABLE `servicios` (
@@ -272,7 +298,7 @@ CREATE TABLE `servicios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `servicios`
+-- Volcado de datos para la tabla `servicios`
 --
 
 INSERT INTO `servicios` (`servicioID`, `nombre_servicio`, `descripcion`) VALUES
@@ -301,11 +327,11 @@ INSERT INTO `servicios` (`servicioID`, `nombre_servicio`, `descripcion`) VALUES
 (23, 'Grabado en Madera:', 'Técnicas de grabado para personalizar y decorar superficies de madera con diseños complejos');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `carrito`
+-- Indices de la tabla `carrito`
 --
 ALTER TABLE `carrito`
   ADD PRIMARY KEY (`CarritoID`),
@@ -313,29 +339,28 @@ ALTER TABLE `carrito`
   ADD KEY `productoID` (`productoID`);
 
 --
--- Indexes for table `categorias`
+-- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`categoriaID`);
 
 --
--- Indexes for table `clientes`
+-- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`clienteID`),
   ADD UNIQUE KEY `ci` (`ci`),
-  ADD UNIQUE KEY `correo` (`correo`),
   ADD UNIQUE KEY `usuario` (`usuario`),
   ADD KEY `departamentoID` (`departamentoID`);
 
 --
--- Indexes for table `departamentos`
+-- Indices de la tabla `departamentos`
 --
 ALTER TABLE `departamentos`
   ADD PRIMARY KEY (`departamentoID`);
 
 --
--- Indexes for table `direcciones_envio`
+-- Indices de la tabla `direcciones_envio`
 --
 ALTER TABLE `direcciones_envio`
   ADD PRIMARY KEY (`direccionID`),
@@ -343,13 +368,13 @@ ALTER TABLE `direcciones_envio`
   ADD KEY `departamentoID` (`departamentoID`);
 
 --
--- Indexes for table `formas_pago`
+-- Indices de la tabla `formas_pago`
 --
 ALTER TABLE `formas_pago`
   ADD PRIMARY KEY (`forma_pagoID`);
 
 --
--- Indexes for table `pedidos`
+-- Indices de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`pedidoID`),
@@ -359,101 +384,101 @@ ALTER TABLE `pedidos`
   ADD KEY `fk_productoID` (`productoID`);
 
 --
--- Indexes for table `productos`
+-- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`productoID`),
   ADD KEY `fk_categoria` (`categoriaID`);
 
 --
--- Indexes for table `servicios`
+-- Indices de la tabla `servicios`
 --
 ALTER TABLE `servicios`
   ADD PRIMARY KEY (`servicioID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `carrito`
+-- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `CarritoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `CarritoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
--- AUTO_INCREMENT for table `categorias`
+-- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `categoriaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `clientes`
+-- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `clienteID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `clienteID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `departamentos`
+-- AUTO_INCREMENT de la tabla `departamentos`
 --
 ALTER TABLE `departamentos`
   MODIFY `departamentoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `direcciones_envio`
+-- AUTO_INCREMENT de la tabla `direcciones_envio`
 --
 ALTER TABLE `direcciones_envio`
-  MODIFY `direccionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `direccionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `formas_pago`
+-- AUTO_INCREMENT de la tabla `formas_pago`
 --
 ALTER TABLE `formas_pago`
   MODIFY `forma_pagoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `pedidos`
+-- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `pedidoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `pedidoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `productos`
+-- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
   MODIFY `productoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
--- AUTO_INCREMENT for table `servicios`
+-- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
   MODIFY `servicioID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `carrito`
+-- Filtros para la tabla `carrito`
 --
 ALTER TABLE `carrito`
   ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`clienteID`) REFERENCES `clientes` (`clienteID`),
   ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`productoID`) REFERENCES `productos` (`productoID`);
 
 --
--- Constraints for table `clientes`
+-- Filtros para la tabla `clientes`
 --
 ALTER TABLE `clientes`
   ADD CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`departamentoID`) REFERENCES `departamentos` (`departamentoID`);
 
 --
--- Constraints for table `direcciones_envio`
+-- Filtros para la tabla `direcciones_envio`
 --
 ALTER TABLE `direcciones_envio`
   ADD CONSTRAINT `direcciones_envio_ibfk_1` FOREIGN KEY (`departamentoID`) REFERENCES `departamentos` (`departamentoID`);
 
 --
--- Constraints for table `pedidos`
+-- Filtros para la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD CONSTRAINT `fk_productoID` FOREIGN KEY (`productoID`) REFERENCES `productos` (`productoID`),
@@ -461,7 +486,7 @@ ALTER TABLE `pedidos`
   ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`forma_pagoID`) REFERENCES `formas_pago` (`forma_pagoID`);
 
 --
--- Constraints for table `productos`
+-- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `fk_categoria` FOREIGN KEY (`categoriaID`) REFERENCES `categorias` (`categoriaID`);
