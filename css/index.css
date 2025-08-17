@@ -31,7 +31,6 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--color-fondo);
-    color: var(--color-texto);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -44,78 +43,11 @@ html {
 }
 
 /* Estilos del encabezado */
-header {
-    background-color: transparent;
-    color: var(--color-fondo);
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(20px);
-}
-header::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-encabezado);
-    opacity: .6;
-    z-index: -10;
-}
+
 .sidebar{
     display: none;
 }
-header nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
 
-header nav ul li {
-    display: inline;
-    margin-right: 1rem;
-}
-header nav ul li:last-child{
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto 0;
-    width: max-content;
-    height: max-content;
-}
-
-header nav a {
-    color: var(--color-fondo);
-    text-decoration: none;
-    padding: .5rem 1rem;
-    transition: color 0.3s ease;
-    position: relative;
-}
-header nav a::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    background-color: var(--color-fondo);
-    height: 2px;
-    opacity: 1;
-    transition: width 0.3s ease;
-}
-header nav a:hover::after{
-    width: 100%;
-}
-
-header nav a:hover {
-    color: var(--color-secundario);
-}
 
 /* Estilos del contenido principal */
 main {
@@ -414,10 +346,12 @@ footer {
     width: 80%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .footer-content .footer-links{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     color: var(--color-fondo);
     width: 50%;
@@ -523,4 +457,25 @@ footer {
     .sidebar:has(#menu-toggle:checked){
         width: 60%;
     }
+    body, html{
+        overflow-x: hidden;
+    }
+    footer{
+        max-width: 100%;
+        display: flex;
+    }
+    .footer-content{
+        width: 100%;
+    }
+    .footer-links{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    body{
+        padding: 0;
+        margin: 0;
+    }
 }
+
+/**/

@@ -22,7 +22,10 @@ $cliente = $respuesta->fetch_assoc();
     <title>Cuenta</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet preconnect">
     <link rel='icon' href='../img/logo-zequitex-mini.ico' type='image/x-icon'>
+    <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/cursor.css">
+    <link rel="stylesheet" href="../css/maps.css">
+    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/menuu.css">
     <link rel="stylesheet" href="../css/accoun.css">
 </head>
@@ -30,7 +33,7 @@ $cliente = $respuesta->fetch_assoc();
     <header id="header-start" class="header-container">
         <div class="header-wrapper">
             <div class="logo-container">
-                    <a href="index.html" aria-label="Ir a la página principal" title="ZEQUITEX S.R.L. - Bordados, Estampados y Diseños Computarizados en Bolivia" role="link">
+                    <a href="../index.html" aria-label="Ir a la página principal" title="ZEQUITEX S.R.L. - Bordados, Estampados y Diseños Computarizados en Bolivia" role="link">
                         <picture class="logo-picture">
                             <source srcset="../img/logo-width.webp" type="image/webp">
                             <source srcset="../img/logo-width.AVIF" type="image/AVIF">
@@ -56,67 +59,21 @@ $cliente = $respuesta->fetch_assoc();
                     </li>
                 </ul>
             </nav>
-            <aside class="sidebar-wrapper">
-                    <form class="sidebar__form">
-                        <input type="checkbox" id="open-menu">
-                        <label for="open-menu" class="material-symbols-outlined close-button">flutter</label>
-                        <label for="open-menu" class="material-symbols-outlined open-button">flutter</label>
-                    </form> 
-                    <nav class="sidebar" role="navigation">
-                        <ul role="list">
-                            <li class='item-sidebar' role="listitem" title="inicio">
-                                <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined list__icon">home</div>
-                                </div>
-                                <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='../index.html' aria-label="Inicio">Inicio</a>
-                                </div>
-                            </li>
-                            <li class='item-sidebar' role="listitem" title="servicios">
-                                <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined">linked_services</div>
-                                </div>
-                                <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='../html/services.html' aria-label="Servicios">servicios</a>
-                                </div>
-                            </li>
-                            <li class='item-sidebar' role="listitem" title="productos">
-                                <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined">inventory</div>
-                                </div>
-                                <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='../html/products.html' aria-label="Productos">productos</a>
-                                </div>
-                            </li>
-                            <li class='item-sidebar' role="listitem" title="sobre nosotros">
-                                <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined">groups</div>
-                                </div>
-                                <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='../html/about_us.html' aria-label="Nosotros">nosotros</a>
-                                </div>
-                            </li>
-                            <li class='item-sidebar' role="listitem" title="contactos">
-                                <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined">call</div>
-                                </div>
-                                <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='../html/contacts.html' aria-label="Productos">contactos</a>
-                                </div>
-                            </li>
-                            <li class='item-sidebar' role="listitem" title="Carrito">
-                                <div class='list__icon list-property-size'>
-                                    <div class="material-symbols-outlined">shopping_cart</div>
-                                </div>
-                                <div class='list__option-text list-property-size'>
-                                    <a role="link" class='content-list' href='cart.php' aria-label="Carrito">Carrito</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </nav>
-            </aside>
+            
         </div>
     </header>
+    <aside class="sidebar">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" id="menu-icon">&#9776;</label>
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../html/about_us.html">Sobre Nosotros</a></li>
+            <li><a href="../html/products.html">Productos</a></li>
+            <li><a href="../html/services.html">Servicios</a></li>
+            <li><a href="../html/contacts.html">Contacto</a></li>
+            <li><a href="../php/verificate-user.php" class="material-symbols-outlined">shopping_cart</a></li>
+        </ul>
+    </aside>
     <main>
         <div class="return">
             <a href="cart.php" class="material-symbols-outlined">arrow_back</a>
@@ -182,7 +139,7 @@ $cliente = $respuesta->fetch_assoc();
             </ul>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Zequitex S.R.L. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Zequitex S.R.L. Todos los derechos reservados.</p>
         </div>
     </footer>
     <script src="../js/cursor.js"></script>

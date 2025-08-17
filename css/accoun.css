@@ -158,3 +158,31 @@ body {
 .close-account-btn:hover{
   background-color: #00c8bb;
 }
+@media screen and (max-width: 768px) {
+  .close-account{
+    top: 20px;
+  }
+  .account-container {
+    padding: 1rem;
+  }
+  
+  .account-title {
+    font-size: 1.5rem;
+  }
+  
+  .form-group input {
+    font-size: 0.9rem;
+  }
+  
+  .action-btn {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .return a, .close-account-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }   
+
+}

@@ -11,7 +11,7 @@ if (empty($_POST['remember'])) {
     $remember = true; 
 }
 
-$_SESSION['remember'] = $remember;
+$_SESSION['remember'] = true;
 if (empty($usuario) || empty($password)) {
     echo "<script>
             alert('Por favor, completa todos los campos');

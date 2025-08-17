@@ -7,23 +7,55 @@
     justify-content: center;
 }
 
+/* El mapa se ajusta al 100% en móviles */
 .map-container__element {
-    width: 80%;
+    width: 100%;
     height: 100%;
 }
+
 gmpx-store-locator {
     --gmpx-color-surface: #333;
     --gmpx-color-on-surface: #fff;
     --gmpx-color-on-surface-variant: #ccc;
     --gmpx-color-primary: #fff;
     --gmpx-color-outline: #fff;
-    --gmpx-fixed-panel-width-row-layout: 28.5em;
-    --gmpx-fixed-panel-height-column-layout: 65%;
+
     --gmpx-font-family-base: "Roboto", sans-serif;
     --gmpx-font-family-headings: "Roboto", sans-serif;
-    --gmpx-font-size-base: 0.7rem;
+    --gmpx-font-size-base: .7rem;
+
     --gmpx-hours-color-open: #188038;
     --gmpx-hours-color-closed: #d50000;
     --gmpx-rating-color: #ffb300;
     --gmpx-rating-color-empty: #e0e0e0;
+
+    /* Valores por defecto (pantallas grandes) */
+    --gmpx-fixed-panel-width-row-layout: 28.5em;
+    --gmpx-fixed-panel-height-column-layout: 65%;
+}
+
+/* 📱 Para móviles */
+@media (max-width: 768px) {
+    .map-container {
+        height: 50vh; /* más compacto */
+    }
+    .map-container__element {
+        width: 100%; /* ocupa todo */
+    }
+    gmpx-store-locator {
+        --gmpx-fixed-panel-width-row-layout: 100%;
+        --gmpx-fixed-panel-height-column-layout: 40%; 
+        --gmpx-font-size-base: .8rem !important;
+    }
+    
+}
+
+/* 🖥️ Para pantallas muy grandes */
+@media (min-width: 1200px) {
+    .map-container {
+        height: 70vh; /* aprovecha el espacio */
+    }
+    .map-container__element {
+        width: 80%;
+    }
 }

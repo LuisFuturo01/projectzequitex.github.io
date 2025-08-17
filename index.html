@@ -25,9 +25,10 @@
     <link href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet preconnect">
     <link rel='stylesheet' href='css/normalize.css'>
-    <link rel='stylesheet' href='css/index.css'>
     <link rel="stylesheet" href="css/cursor.css">
-¡    <script type='application/ld+json'>
+    <link rel='stylesheet' href='css/index.css'>
+    <link rel='stylesheet' href='css/menuu.css'>
+    <script type='application/ld+json'>
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
@@ -37,28 +38,49 @@
     </script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="html/about_us.html">Sobre Nosotros</a></li>
-                <li><a href="html/services.html">Servicios</a></li>
-                <li><a href="html/products.html">Productos</a></li>
-                <li><a href="html/contacts.html">Contactos</a></li>
-                <li><a href="php/verificate-user.php" class="material-symbols-outlined">shopping_cart</a></li>
-            </ul>
-        </nav>
+    <header id="header-start" class="header-container">
+        <div class="header-wrapper">
+            <div class="logo-container">
+                    <a href="./index.html" aria-label="Ir a la página principal" title="ZEQUITEX S.R.L. - Bordados, Estampados y Diseños Computarizados en Bolivia" role="link">
+                        <picture class="logo-picture">
+                            <source srcset="./img/logo-width.webp" type="image/webp">
+                            <source srcset="./img/logo-width.AVIF" type="image/AVIF">
+                            <img src="./img/logo-width.AVIF" alt="Logo de ZEQUITEX S.R.L." role="img" />
+                        </picture>
+                    </a>
+            </div>      
+            <nav class="menu-navbar-container" role="navigation">
+                <ul class="menu-navbar-container__ul" title="Menú de navegación principal"> 
+                    <li class="container__division-ul__list">
+                        <ul class="navbar-items-list">
+                            <li class="navbar-item"><a href="./index.html" title="Inicio" aria-label="Inicio">inicio</a></li>
+                            <li class="navbar-item"><a href="./html/about_us.html" title="Sobre Nosotros" aria-label="Sobre Nosotros">nosotros</a></li>
+                            <li class="navbar-item"><a href="./html/services.html" title="Servicios" aria-label="Servicios">servicios</a></li>
+                            <li class="navbar-item"><a href="./html/products.html" title="Productos" aria-label="Productos">productos</a></li>
+                            <li class="navbar-item"><a href="./html/contacts.html" title="Contactos" aria-label="Contactos">contactos</a></li>
+                        </ul>
+                    </li>
+                    <li class="container__division-ul__list">
+                        <ul class="navbar-items-list">
+                            <li class="navbar-item"><a class="material-symbols-outlined icon-navbar-usser" href="./php/verificate-user.php" title="Carrito" aria-label="Carrito">shopping_cart</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            
+            
+        </div>
     </header>
     <aside class="sidebar">
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" id="menu-icon">&#9776;</label>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="html/about_us.html">Sobre Nosotros</a></li>
-            <li><a href="html/products.html">Productos</a></li>
-            <li><a href="html/services.html">Servicios</a></li>
-            <li><a href="html/contacts.html">Contacto</a></li>
-            <li><a href="php/verificate-user.php" class="material-symbols-outlined">shopping_cart</a></li>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./html/about_us.html">Sobre Nosotros</a></li>
+            <li><a href="./html/products.html">Productos</a></li>
+            <li><a href="./html/services.html">Servicios</a></li>
+            <li><a href="./html/contacts.html">Contacto</a></li>
+            <li><a href="./php/verificate-user.php" class="material-symbols-outlined">shopping_cart</a></li>
         </ul>
     </aside>
     <main>
@@ -132,7 +154,7 @@
             </ul>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Zequitex S.R.L. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Zequitex S.R.L. Todos los derechos reservados.</p>
         </div>
     </footer>
     <script src="js/cursor.js"></script>
