@@ -25,21 +25,29 @@ if ($ans->num_rows > 0) {
                 window.location.href = '../html/sign_in.html';
             </script>";
 }
-$consulta = "INSERT INTO clientes(nombre_completo, ci, correo, contraseña, telefono, direccion, ciudad, departamentoID, genero, usuario) VALUES 
-('$name', '$ci', '$mail', '$hash', '$phone', '$direc', '$city', $depar, '$genero', '$usuario')";
+try {
+    $consulta = "INSERT INTO clientes(nombre_completo, ci, correo, contraseña, telefono, direccion, ciudad, departamentoID, genero, usuario) VALUES 
+    ('$name', '$ci', '$mail', '$hash', '$phone', '$direc', '$city', $depar, '$genero', '$usuario')";
 
-$result = $conn->query($consulta);
+    $result = $conn->query($consulta);
 
-if ($result) {
-    echo "  <script>
+    if ($result) {
+        echo "<script>
             alert('Usuario Creado con exito');
             window.location.href = '../html/login.html';
         </script>";
-}else{
-    echo "  <script>
-            alert('error al crear la cuenta');
+    } else {
+        echo "<script>
+            alert('Error al crear la cuenta. Intente nuevamente.');
             window.location.href = '../html/sign_in.html';
         </script>";
+    }
+} catch (Exception $e) {
+    echo "<script>
+        alert('Ha ocurrido un error inesperado. Por favor, intente más tarde.');
+        window.location.href = '../index.html';
+    </script>";
+} finally {
+    $conn->close();
 }
-$conn->close();
 ?>

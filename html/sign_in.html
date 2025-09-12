@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>Crear Cuenta</title>
     <meta name="robots" content="noindex">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="../css/loginn.css">
@@ -23,19 +23,27 @@
                         <label for="Name">Nombre Completo:</label>
                         <input required autocomplete="off" type="text" id="Name" name="Usuario" placeholder="Complete Name">
                         <span class="error-message">Por favor, ingresa tu nombre.</span>
+                    </div>
 
+                    <div class="form-part">
                         <label for="CI">Carnet de Identidad(CI):</label>
                         <input required autocomplete="off" type="text" id="CI" name="CI" placeholder="00000000">
                         <span class="error-message">Por favor, Ingresa tu CI.</span>
+                    </div>
 
+                    <div class="form-part">
                         <label for="email">Correo Electrónico:</label>
                         <input required autocomplete="off" type="email" id="email" name="email" placeholder="pepito@hola.com">
                         <span class="error-message">Por favor, Ingresa tu correo.</span>
+                    </div>
 
+                    <div class="form-part">
                         <label for="Usuario">Usuario:</label>
                         <input required autocomplete="off" type="text" id="Usuario" name="UsuarioName" placeholder="Customer Name">
                         <span class="error-message">Por favor, ingresa tu usuario.</span>
+                    </div>
 
+                    <div class="form-part">
                         <label for="Password">Contraseña:</label>
                         <div class="password">
                             <input autocomplete="off" type="password" id="Password" name="UsuarioPassword" placeholder="Password" required>
@@ -48,15 +56,21 @@
                         <label for="phone">Celular:</label>
                         <input required autocomplete="off" type="text" id="phone" name="phone" placeholder="7654321">
                         <span class="error-message">Por favor, ingresa tu celular.</span>
-
+                    </div>
+                    
+                    <div class="form-part">
                         <label for="Dir">Dirección:</label>
                         <input required autocomplete="off" type="text" id="Dir" name="dir" placeholder="Clle. Peñaloza, La Paz, Bolivia">
                         <span class="error-message">Por favor, ingresa tu dirección.</span>
+                    </div>
 
+                    <div class="form-part">
                         <label for="ciudad">Ciudad:</label>
                         <input required autocomplete="off" type="text" id="ciudad" name="ciudad" placeholder="El Alto">
                         <span class="error-message">Por favor, ingresa tu ciudad.</span>
+                    </div>
 
+                    <div class="form-part">
                         <label for="dep">Departamento:</label>
                         <select required class="login-select" name="dep" id="dep">
                             <option value="" disabled selected>Seleccionar...</option>
@@ -71,7 +85,9 @@
                             <option value="9">Pando</option>
                         </select>
                         <span class="error-message">Por favor, ingresa tu departamento.</span>
+                    </div>
 
+                    <div class="form-part">
                         <label for="gen">Género:</label>
                         <select required class="login-select" name="gen" id="gen">
                             <option value="" disabled selected>Seleccionar...</option>
@@ -82,18 +98,15 @@
                         <span class="error-message">Por favor, ingresa tu género.</span>
                     </div>
 
-                    <a class="form-link" href="login.html">Ya tengo una cuenta</a>
-
                     <div class="down-part">
                         <input class="form-button" type="submit" value="Crear">
                         <input type="reset" class="form-button">
                     </div>
+                    <a class="form-link" href="login.html">Ya tengo una cuenta</a>
                 </div>
             </form>
         </div>
     </div>
-
     <script src="../js/logg.js"></script>
-
 </body>
 </html>

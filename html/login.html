@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>Iniciar Sesión</title>
     <meta name="robots" content="noindex">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="../css/loginn.css">
+    <style>
+        .background {
+            display: none;
+        }
+        .container, body{
+            background-color: #33705f !important;
+        }
+    </style>
 </head>
 <body>
     <div class="background">
@@ -17,33 +25,39 @@
     </div>
     <div class="container">
         <div class="login-container">
-            <div class="img-container">
-                <img src="../img/logo-zequitex-big.png" alt="">
-            </div>
-            <form method="post" action="../php/login.php" class="login-container__form" id="miFormulario">
+            
+            <form method="post" action="../php/login.php" class="login-container__form">
                 <div class="login-container__form__title">
                     <h1>LOGIN</h1>
                 </div>
                 <div class="login-container__form__input">
-                    <label for="Usuario">Usuario:</label>
-                    <input autocomplete="off"type="text" id="Usuario" name="UsuarioName" placeholder="Customer Name" required>
-                    <span class="error-message">Por favor, ingresa tu Usuario.</span>
-                    <label for="Password">Contraseña:</label>
-                    <div class="password">
-                        <input autocomplete="off"type="Password" id="Password" name="UsuarioPassword" placeholder="Password" required>
-                        <span class="material-symbols-outlined" id="see-password">Visibility_Off</span>
+                    <div class="form-part">
+                        <label for="Usuario">Usuario:</label>
+                        <input autocomplete="off" type="text" id="Usuario" name="UsuarioName" placeholder="Customer Name" required>
+                        <span class="error-message">Por favor, ingresa tu Usuario.</span>
                     </div>
-                    <span class="error-message">Por favor, ingresa tu contraseña.</span>
+                    
+                    <div class="form-part">
+                        <label for="Password">Contraseña:</label>
+                        <div class="password">
+                            <input autocomplete="off" type="password" id="Password" name="UsuarioPassword" placeholder="Password" required>
+                            <span class="material-symbols-outlined" id="see-password">visibility_off</span>
+                        </div>
+                        <span class="error-message">Por favor, ingresa tu contraseña.</span>
+                    </div>
+
                     <div class="remember-container">
                         <input type="checkbox" id="remember" name="remember">
                         <label for="remember" id="remember-label">Recordar</label>
                         <label id="additional-label" for="remember"></label>
                     </div>
+
+                    <a class="form-link" href="sign_in.html">Crear Cuenta</a>
+
                     <div class="down-part">
                         <input class="form-button" type="submit" value="ingresar">
                         <input type="reset" class="form-button">
                     </div>
-                    <a class="form-link" href="sign_in.html">Crear Cuenta</a>
                 </div>
             </form>
         </div>

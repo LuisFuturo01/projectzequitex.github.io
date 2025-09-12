@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-03-2025 a las 04:53:06
+-- Tiempo de generación: 09-09-2025 a las 15:33:36
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -41,7 +41,8 @@ INSERT INTO `carrito` (`CarritoID`, `clienteID`, `productoID`) VALUES
 (33, 1, 1),
 (52, 4, 9),
 (53, 4, 11),
-(54, 4, 3);
+(58, 9, 5),
+(59, 9, 20);
 
 -- --------------------------------------------------------
 
@@ -93,10 +94,13 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`clienteID`, `nombre_completo`, `ci`, `correo`, `contraseña`, `telefono`, `direccion`, `ciudad`, `departamentoID`, `fecha_registro`, `genero`, `activo`, `usuario`) VALUES
-(1, 'user123', '7894561', 'luis.futuro.01@gmail.com', '$2y$10$18ot39uZQko5VT1tHUNZnOJ32vkP.ucOu2GOArueXDcSlPY5P0ghq', '7894561', 'la paz', 'la paz', 1, '2024-10-09', 'M', 1, 'user1234'),
+(1, 'user123', '7894561', 'luis.futuro.02@gmail.com', '$2y$10$18ot39uZQko5VT1tHUNZnOJ32vkP.ucOu2GOArueXDcSlPY5P0ghq', '7894561', 'la paz', 'la paz', 1, '2024-10-09', 'M', 1, 'user1234'),
 (2, 'Sabrina Abril Aguilar Valdiviezo ', '10008456', 'sabriav23@gmail.com', '$2y$10$YhX0qz1G.U8I5L49YILQsu5qBZl92GitJx.N.eUxJ7doX9rNZuCAO', '63214016', 'Av.Arce', 'La Paz', 1, '2024-10-09', 'O', 1, 'Sabryap'),
 (4, 'luis alejandro zeballos quiroz', '12896709', 'luis.futuro.01@gmail.com', '$2y$10$5fsxeGbKWRQEEtMnDVulfewMQxxRMGkgOM.OREJ9.Kh0FEp5j2rDm', '71556955', 'Clle. Peñaloza, Villa Victoria', 'La Paz', 1, '2024-11-17', 'M', 1, 'luisfuturo01'),
-(6, 'Javier y Boris', '1212123121', 'luis.futuro.01@gmail.com', '$2y$10$d5UL9qpgDbsSPpt3I1bCYesKXVV2xnX9Xq703jczmRArp6KD0s/7K', '715569555', 'Peñaloza', 'La Paz', 1, '2024-11-22', 'M', 1, 'javier');
+(6, 'Javier y Boris', '1212123121', 'luis.futuro.01@gmail.com', '$2y$10$d5UL9qpgDbsSPpt3I1bCYesKXVV2xnX9Xq703jczmRArp6KD0s/7K', '715569555', 'Peñaloza', 'La Paz', 1, '2024-11-22', 'M', 1, 'javier'),
+(9, 'luisillo', '12896709999', 'luis.az.quiroz@gmail.com', '$2y$10$zw/zyF1VIpMidWCEbUPO9.k5/7LDBxh2LbfazK6eVjFhaSrE6/l.a', '71556955', 'la paz', 'la paz', 1, '2025-08-15', 'M', 1, 'luisillo'),
+(13, 'luisillo', '128967099', 'luis.futuro.01@gmail.com', '$2y$10$TF9nO9JwiMLNqLIxyirOfuF/kmtJdLhTvfJATxIfayRX/iNZkIo/O', '71556955', 'Peñaloza', 'La Paz', 1, '2025-09-06', 'M', 1, 'LuisZeballos'),
+(15, 'luis', '12896709', 'luis.futuro.01@gmail.com', '$2y$10$EO83KlyPyqW0P5SrLx78puE1rlUEY2hCH5kwC9pS/UzNWpXk3RpA6', '71556955', 'la paz', 'alto', 1, '2025-09-09', 'M', 1, 'luisip');
 
 -- --------------------------------------------------------
 
@@ -163,7 +167,9 @@ INSERT INTO `direcciones_envio` (`direccionID`, `clienteID`, `nombre_destinatari
 (16, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
 (17, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
 (18, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
-(19, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955');
+(19, 4, 'luis alejandro zeballos quiroz', 'Clle. Peñaloza, Villa Victoria', '', 1, '71556955'),
+(20, 9, 'luisillo', 'la paz', '', 1, '71556955'),
+(21, 13, 'luisillo', 'Peñaloza', '', 1, '71556955');
 
 -- --------------------------------------------------------
 
@@ -220,7 +226,9 @@ INSERT INTO `pedidos` (`pedidoID`, `clienteID`, `fecha_pedido`, `fecha_entrega`,
 (12, 4, '2024-11-18 03:11:57', NULL, 50.00, 1, '', NULL, NULL),
 (13, 4, '2024-11-18 03:12:12', NULL, 50.00, 1, '', NULL, NULL),
 (14, 4, '2024-11-21 02:49:30', NULL, 100.00, 1, '', NULL, NULL),
-(15, 4, '2024-11-21 02:54:08', NULL, 75.00, 1, 'entregue en la paz', NULL, NULL);
+(15, 4, '2024-11-21 02:54:08', NULL, 75.00, 1, 'entregue en la paz', NULL, NULL),
+(16, 9, '2025-08-16 22:24:12', NULL, 4400.00, 1, '', NULL, NULL),
+(17, 13, '2025-09-07 14:42:49', NULL, 100.00, 1, '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -244,8 +252,8 @@ CREATE TABLE `productos` (
 INSERT INTO `productos` (`productoID`, `nombre_producto`, `descripcion`, `precio`, `stock`, `categoriaID`) VALUES
 (1, 'CONJUNTO NEGRO', 'conjunto de deportivo negro con lineas rojas de fergus', 50.00, 0, 1),
 (2, 'CONJUNTO ROJO', 'conjunto rojo con plomo de fergus', 50.00, 0, 1),
-(3, 'CONJUNTO AMARILLO-AZUL', 'conjunto amarillo con azul de fergus', 50.00, 87, 1),
-(4, 'CONJUNTO ROJO-AZUL', 'conjunto rojo con azul de lorem con lineas blancas ', 50.00, 97, 1),
+(3, 'CONJUNTO AMARILLO-AZUL', 'conjunto amarillo con azul de fergus', 50.00, 0, 1),
+(4, 'CONJUNTO ROJO-AZUL', 'conjunto rojo con azul de lorem con lineas blancas ', 50.00, 95, 1),
 (5, 'CONJUNTO NEGRO-AZUL', 'conjunto negro con azul y blanco, de fergus', 50.00, 95, 1),
 (6, 'CONJUNTO ARGENTINO', 'conjunto argentino con el 3 mundial', 50.00, 99, 1),
 (7, 'CONJUNTO BLANCO-PLOMO', 'conjunto blanco con plomo de adidas con diseños rojos y negros', 50.00, 100, 1),
@@ -254,8 +262,8 @@ INSERT INTO `productos` (`productoID`, `nombre_producto`, `descripcion`, `precio
 (10, 'GORRA CREMA NIKE', 'gorra color crema de nike con bordado LA', 25.00, 50, 2),
 (11, 'GORRA ROJA NY', 'gorra roja con frente larga de NY', 25.00, 50, 2),
 (12, 'GORRA BLANCA', 'gorra blanca bordada con negro ajustable', 25.00, 49, 2),
-(13, 'GORRA PLOMA-MALLA', 'gorra Plomma con malla de triumph motorcycles', 25.00, 50, 2),
-(14, 'GORRA CAQUI-BOLIVIA', 'Gorra caqui de bolivia color beich, multicolor', 25.00, 50, 2),
+(13, 'GORRA PLOMA-MALLA', 'gorra Plomma con malla de triumph motorcycles', 25.00, 49, 2),
+(14, 'GORRA CAQUI-BOLIVIA', 'Gorra caqui de bolivia color beich, multicolor', 25.00, 49, 2),
 (15, 'GORRA NEGRA-ADIDAS', 'gorra negra con malla, de adidas deportiva', 25.00, 50, 2),
 (16, 'GORRA BLANCA-ADIDAS', 'gorra simple blanca de adidas', 25.00, 50, 2),
 (17, 'GORRA AZUL-BOLIVIA', 'gorra azul de bolivia con bordado y apaches', 25.00, 50, 2),
@@ -349,7 +357,6 @@ ALTER TABLE `categorias`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`clienteID`),
-  ADD UNIQUE KEY `ci` (`ci`),
   ADD UNIQUE KEY `usuario` (`usuario`),
   ADD KEY `departamentoID` (`departamentoID`);
 
@@ -404,7 +411,7 @@ ALTER TABLE `servicios`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `CarritoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `CarritoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -416,7 +423,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `clienteID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `clienteID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `departamentos`
@@ -428,7 +435,7 @@ ALTER TABLE `departamentos`
 -- AUTO_INCREMENT de la tabla `direcciones_envio`
 --
 ALTER TABLE `direcciones_envio`
-  MODIFY `direccionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `direccionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `formas_pago`
@@ -440,7 +447,7 @@ ALTER TABLE `formas_pago`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `pedidoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `pedidoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`

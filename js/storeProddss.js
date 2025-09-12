@@ -21,13 +21,13 @@ function fetchServices(term = '') {
                     serviceElement.classList.add('item-select');
                 }
                 
-                let buttonHtml = '';
-                if (service.stock > 0) {
-                    buttonHtml = '<button class="button-select">SELECCIONAR</button>';
-                } else {
-                    serviceElement.classList.add('agotado_element');
-                }
-
+                    let buttonHtml = '<button class="button-select">SELECCIONAR</button>';
+                    if (service.stock != 0) {
+                        buttonHtml = '<button class="button-select">SELECCIONAR</button>';
+                    } else {
+                        buttonHtml=''
+                        serviceElement.classList.add('agotado_element');
+                    }
                 serviceElement.innerHTML = `
                 <div class="box-product__container-img">    
                     <div class="box-product__id ${selectedIds.includes(service.productoID) ? 'id-select' : ''}">${service.productoID}</div>
